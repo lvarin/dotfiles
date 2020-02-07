@@ -15,14 +15,8 @@ Configure linux workstation using Ansible.
 
 ## Bootstrap
 
-Firt setup installation run the dot-bootstrap command.
+First setup installation and any other update run the dot-bootstrap command.
 
 ```
 $ ./bin/dot-bootstrap
-```
-
-After that you can run any scripts defined in the `$DOTFILES_PATH/bin`
-
-```
-$ dot-bootstrap
 ```
