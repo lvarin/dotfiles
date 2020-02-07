@@ -10,7 +10,7 @@ if [ -z $tags ]; then
 fi
 
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo apt install ansible -v 2.7.4
+  sudo apt install ansible -y
 fi
 
 if [ ! -d ~/.dotfiles ];
