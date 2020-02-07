@@ -8,3 +8,7 @@
   unarchive:
     src: /tmp/terraform.zip
     dest: /usr/local/bin/
+  become_method: sudo
+  become_user: root
+  become: yes
+
