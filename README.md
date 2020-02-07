@@ -2,33 +2,16 @@
 
 Configure linux workstation using Ansible.
 
-### Languages
-
-Languages are managed with [asdf](https://asdf-vm.com/#/).
-
-- Ruby
-- Golang
-- Nodejs
-- Python
-- Elixir
-- Terraform
+## Base tools
+ - wget
+ - curl
 
 ### System
 
-- fzf
 - git
 - tmux
 - vim
 - zsh
-
-### Services
-
-- redis
-
-### Packages
-
-- snap
-- apt
 
 ## Bootstrap
 
