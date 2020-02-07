@@ -1,11 +1,10 @@
-- name: Add terraform plugin
-  command: "asdf plugin-add terraform"
-  register: terraform_add
-  failed_when: terraform_add == 2
+- name: Download terraform ZIP
+  get_url:
+      url: https://releases.hashicorp.com/terraform/{{version}}/terraform_{{version}}_linux_amd64.zip
+      dest: /tmp/terraform.zip
+      mode: '0440'
 
-- name: "Install terraform versions"
-  command: asdf install terraform {{item}}
-  loop: "{{versions}}"
-
-- name: Set global version for terraform to {{versions[0]}}
-  command: "asdf global terraform {{versions[0]}}"
+- name: Extract terraform.zip into /usr/local/bin/
+  unarchive:
+    src: /tmp/terraform.zip
+    dest: /usr/local/bin/
