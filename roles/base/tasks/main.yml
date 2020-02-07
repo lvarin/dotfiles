@@ -1,0 +1,7 @@
+- name: ensure a list of packages installed
+  package:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - wget
+    - curl
