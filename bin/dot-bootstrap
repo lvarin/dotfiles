@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+DOTFILESPATH="$( cd "$(dirname "$0")/.." ; pwd -P )"
+
 tags="$1"
 
 if [ -z $tags ]; then
@@ -9,6 +11,11 @@ fi
 
 if ! [ -x "$(command -v ansible)" ]; then
   sudo apt install ansible -v 2.7.4
+fi
+
+if [ ! -d ~/.dotfiles ];
+then
+	ln -s $DOTFILESPATH ~/.dotfiles
 fi
 
 ansible-playbook -i ~/.dotfiles/hosts ~/.dotfiles/dotfiles.yml --ask-become-pass --tags $tags
