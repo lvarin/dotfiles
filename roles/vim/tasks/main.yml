@@ -4,9 +4,12 @@
   become: true
   become_method: sudo
 
-- name: Symlink .vimrc
-  file:
-    src: "{{ dotfiles_home }}/roles/vim/files/vimrc"
-    dest: "{{dotfiles_user_home}}/.vimrc"
-    state: link
+- name: Copy .vimrc
+  copy:
+    src: "vimrc"
+    dest: "~/.vimrc"
+  become_user: root
+  become: true
+  become_method: sudo
+
 
