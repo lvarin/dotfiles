@@ -1,5 +1,5 @@
 - name: Set up local workstation
-  hosts: local
+  hosts: all
   roles:
     - role: base
       tags:
