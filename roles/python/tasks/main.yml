@@ -1,11 +1,12 @@
+
+- import_tasks: debian.yml
+  when: ansible_os_family == "Debian"
+- import_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
+
 - name: Install python
   package: name=python state=present
   become_user: root
   become: true
   become_method: sudo
 
-- name: Install python3
-  package: name=python3 state=present
-  become_user: root
-  become: true
-  become_method: sudo
