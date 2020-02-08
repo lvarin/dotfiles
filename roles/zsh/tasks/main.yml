@@ -12,13 +12,28 @@
   raw: "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)\""
   when: not oh_my_zsh_stat.stat.exists
 
-- name: Symlink .zshrc
+- name: Copy .zshrc
+  copy:
+    src: "zshrc"
+    dest: "~/.zshrc"
+
+- name: Create folder .zsh
   file:
-    src: "{{ dotfiles_home }}/roles/zsh/files/zshrc"
-    dest: "{{dotfiles_user_home}}/.zshrc"
-    state: link
+    path: "~/.zsh"
+    state: directory
+    mode: '0755'
+
+- name: Copy .zsh/ folder
+  copy:
+    src: "zsh/"
+    dest: "~/.zsh"
 
 - name: Change shell
   user:
     name: "{{ ansible_user_id }}"
     shell: /bin/zsh
+  become: yes
+  become_user: root
+  become_method: sudo
+
+
