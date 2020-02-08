@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 #export GOPATH=$HOME/Code/go
 #export PATH=$PATH:$(go env GOPATH)/bin
 
-source $HOME/.dotfiles/roles/zsh/aliases.zsh
-source $HOME/.dotfiles/roles/zsh/config.zsh
-source $HOME/.dotfiles/roles/zsh/env.zsh
-source $HOME/.dotfiles/roles/zsh/path.zsh
+source $HOME/.zsh/aliases.zsh
+source $HOME/.zsh/config.zsh
+source $HOME/.zsh/env.zsh
+source $HOME/.zsh/path.zsh
