@@ -1,0 +1,5 @@
+- name: Install python3
+  package: name=python36 state=present
+  become_user: root
+  become: true
+  become_method: sudo
