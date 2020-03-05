@@ -1,0 +1,13 @@
+- name: Install i3wmn
+  package: name=i3wm state=present
+  become_user: root
+  become: true
+  become_method: sudo
+
+#- name: Copy .vimrc
+#  copy:
+#    src: "vimrc"
+#    dest: "~/.vimrc"
+#  become_user: root
+#  become: true
+#  become_method: sudo

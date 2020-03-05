@@ -22,3 +22,6 @@
     - role: terraform
       tags:
         - terraform
+    - role: i3wm
+      tags:
+        - i3wm
