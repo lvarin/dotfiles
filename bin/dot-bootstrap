@@ -3,16 +3,16 @@ set -e
 
 DOTFILESPATH="$( cd "$(dirname "$0")/.." ; pwd -P )"
 
-hosts="$1"
-tags="$2"
+tags="$1"
+hosts="$2"
 
-if [ -z $tags ]; then
+if [ -z "$tags" ]; then
   tags="all"
 fi
 
-if [ -z $hosts ];
+if [ -z "$hosts" ];
 then
-  hosts='~/.dotfiles/hosts'
+  hosts="$HOME/.dotfiles/hosts"
 fi
 
 if ! [ -x "$(command -v ansible)" ]; then
@@ -33,10 +33,10 @@ fi
 
 if [ ! -d ~/.dotfiles ];
 then
-	ln -s $DOTFILESPATH ~/.dotfiles
+	ln -s "$DOTFILESPATH" ~/.dotfiles
 fi
 
-ansible-playbook -i $hosts ~/.dotfiles/dotfiles.yml --ask-become-pass --tags $tags
+ansible-playbook -i "$hosts" ~/.dotfiles/dotfiles.yml --ask-become-pass --tags "$tags"
 
 if command -v terminal-notifier 1>/dev/null 2>&1; then
   terminal-notifier -title "dotfiles: Bootstrap complete" -message "Successfully set up dev environment."
