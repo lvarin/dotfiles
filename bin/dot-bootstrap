@@ -16,7 +16,19 @@ then
 fi
 
 if ! [ -x "$(command -v ansible)" ]; then
-  sudo apt install ansible -y
+  if [ -x "$(command -v apt)" ]; then
+    set -x
+    sudo apt install ansible -y
+    set +x
+  elif [ -x "$(command -v yum)" ];
+  then
+    set -x
+    sudo yum install -y ansible
+    set +x
+  else
+    echo "No ansible available, please install it" >&2
+    exit 1
+  fi
 fi
 
 if [ ! -d ~/.dotfiles ];
