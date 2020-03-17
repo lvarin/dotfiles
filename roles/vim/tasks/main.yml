@@ -8,8 +8,5 @@
   copy:
     src: "vimrc"
     dest: "~/.vimrc"
-  become_user: root
-  become: true
-  become_method: sudo
 
 
