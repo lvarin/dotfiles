@@ -1,13 +1,26 @@
 - name: Install i3wmn
-  package: name=i3wm state=present
+  package:
+    name:
+      - i3
+      - i3status
+      - google-roboto-fonts
+      - rxvt-unicode
+    state: present
   become_user: root
   become: true
   become_method: sudo
 
-#- name: Copy .vimrc
-#  copy:
-#    src: "vimrc"
-#    dest: "~/.vimrc"
-#  become_user: root
-#  become: true
-#  become_method: sudo
+- name: Create config folder
+  file:
+    path: ~/.config/i3/
+    state: directory
+
+- name: Copy .config/i3/
+  copy:
+    src: "config"
+    dest: "~/.config/i3/config"
+
+- name: i3status
+  copy:
+    src: i3status.conf
+    dest: "~/.config/i3/i3status.conf"
