@@ -69,7 +69,7 @@ ZSH_THEME=ys
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git ruby kubectl aws)
+plugins=(git ruby kubectl aws oc)
 
 source $ZSH/oh-my-zsh.sh
 
