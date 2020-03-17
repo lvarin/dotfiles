@@ -9,3 +9,7 @@
     - wget
     - curl
     - unzip
+    - whois
+    - jq
+    - docker
+    - nmap
