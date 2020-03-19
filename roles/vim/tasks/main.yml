@@ -1,12 +1,21 @@
 - name: Install vim
-  package: name=vim state=present
+  package:
+    name:
+    - vim
+    - vim-X11
+    state: present
   become_user: root
   become: true
   become_method: sudo
 
+- name: Create config folder
+  file:
+    path: ~/.vim/
+    state: directory
+
 - name: Copy .vimrc
   copy:
     src: "vimrc"
-    dest: "~/.vimrc"
+    dest: "~/.vim/vimrc"
 
 
