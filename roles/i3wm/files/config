@@ -11,7 +11,7 @@ hide_edge_borders none
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal 
+bindsym $mod+Return exec i3-sensible-terminal -e zsh
 bindsym $mod+backslash exec i3-sensible-terminal
 
 # kill focused window
@@ -26,7 +26,7 @@ bindsym $mod+d exec dmenu_run -l 15 -p ">:" -b
 #                 -hide-scrollbar
 
 # Lock the screen
-bindsym $mod+l exec bin/lock
+bindsym $mod+l exec i3lock -c 000000
 
 #
 # Kill all apps in work space 3
@@ -142,13 +142,13 @@ bindsym $mod+r mode "resize"
 
 
 # Start up applications
-exec --no-startup-id ~/bin/laptopDocking.sh
+#exec --no-startup-id ~/bin/laptopDocking.sh
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id ibus-daemon
 
 #exec --no-startup-id cmst
-exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P default"
+exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P default-default"
 #
 exec --no-startup-id exec /usr/bin/thunderbird
 for_window [class="Thunderbird"] move to workspace $tag2
@@ -214,8 +214,8 @@ bar {
     #status_command ~/bin/bar.sh
     #i3bar_command i3bar -t
     #i3bar_command i3bar
-    #position top
-    position bottom
+    position top
+    #position bottom
     separator_symbol "  "
     colors {
 
@@ -243,15 +243,8 @@ bindsym $mod+F1 exec ~/bin/xrandr-1.sh
 bindsym XF86Display exec ~/bin/xrandr-1.sh
 bindsym $mod+F2 exec ~/bin/xrandr-3.sh
 #
-# WiFi
-#
-bindsym XF86Tools exec ~/bin/wifi-updown.sh CERN up
-bindsym Shift+XF86Tools exec ~/bin/wifi-updown.sh CERN down
-bindsym F9 exec ~/bin/wifi-updown.sh CERN up
-bindsym Shift+F9 exec ~/bin/wifi-updown.sh CERN down
-#
-bindsym $mod+F11 exec /usr/bin/firefox -P default
-bindsym $mod+F12 exec /usr/bin/firefox -P ninja
+bindsym $mod+F11 exec /usr/bin/firefox -P default-default
+bindsym $mod+F12 exec /usr/bin/firefox -P spotify
 bindsym $mod+n exec ~/bin/rename_workspace.sh
 bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/ScreenShots/'
 
@@ -274,14 +267,14 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 #
 # Spotify
 #
-bindsym $mod+Insert exec ~/bin/spotify-client pause
-bindsym XF86AudioPlay exec ~/bin/spotify-client prev
+bindsym $mod+Insert exec spotify-client pause
+bindsym XF86AudioPlay exec spotify-client prev
 #
-bindsym $mod+Delete exec ~/bin/spotify-client prev
-bindsym XF86Calculator exec ~/bin/spotify-client next
+bindsym $mod+Delete exec spotify-client prev
+bindsym XF86Calculator exec spotify-client next
 #
-bindsym $mod+End exec ~/bin/spotify-client next
-bindsym $mod+Home exec ~/bin/spotify-client stop
+bindsym $mod+End exec spotify-client next
+bindsym $mod+Home exec spotify-client stop
 
 # Move workspace to other screen
 bindsym $mod+bracketright move workspace to output right
