@@ -13,3 +13,17 @@
     - jq
     - docker
     - nmap
+
+- name: ensure a list of Python3 packages to be installed
+  pip:
+    name: "{{ packages }}"
+    executable: pip3
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    packages:
+    - python-swiftclient
+    - python-keystoneclient
+    - yq
+    - asciinema
