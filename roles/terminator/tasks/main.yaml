@@ -1,0 +1,20 @@
+- name: Install vim
+  package:
+    name:
+    - terminator
+    state: present
+  become_user: root
+  become: true
+  become_method: sudo
+
+- name: Create config folder
+  file:
+    path: ~/.config/terminator
+    state: directory
+
+- name: Copy config
+  copy:
+    src: "config"
+    dest: "~/.config/terminator/"
+
+

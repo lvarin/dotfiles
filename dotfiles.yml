@@ -25,3 +25,6 @@
     - role: i3wm
       tags:
         - i3wm
+    - role: terminator
+      tags:
+        - terminator
