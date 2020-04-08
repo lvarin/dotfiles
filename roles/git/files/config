@@ -1,0 +1,33 @@
+[user]
+	name = alvaro.gonzalez
+	email = alvaro.gonzalez@csc.fi
+[push]
+	default = simple
+
+[color]
+  ui = always
+  branch = auto
+	diff = auto
+  status = auto
+
+[color "diff-highlight"]
+    oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
