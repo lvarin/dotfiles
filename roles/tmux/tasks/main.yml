@@ -4,12 +4,14 @@
   become: true
   become_method: sudo
 
+#- name: Create config folder
+#  file:
+#    path: ~/.config/tmux
+#    state: directory
+
 - name: Copy .tmux.conf
   copy:
     src: "tmux.conf"
     dest: "~/.tmux.conf"
-  become_user: root
-  become: true
-  become_method: sudo
 
 
