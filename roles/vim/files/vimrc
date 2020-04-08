@@ -1,2 +1,11 @@
 set number
 set clipboard=unnamedplus
+set bg=dark
+
+" python
+set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
+map bgl :set bg=light
