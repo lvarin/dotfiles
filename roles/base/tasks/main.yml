@@ -13,6 +13,7 @@
     - jq
     - docker
     - nmap
+    - xclip
 
 - name: ensure a list of Python3 packages to be installed
   pip:
