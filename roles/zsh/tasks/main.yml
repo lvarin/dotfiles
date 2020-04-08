@@ -36,4 +36,8 @@
   become_user: root
   become_method: sudo
 
-
+- name: Install zsh-autosuggestions
+  git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  when: oh_my_zsh_stat.stat.exists
