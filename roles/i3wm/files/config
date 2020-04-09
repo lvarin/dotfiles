@@ -11,7 +11,7 @@ hide_edge_borders none
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal -e zsh
+bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+backslash exec i3-sensible-terminal
 
 # kill focused window
@@ -70,9 +70,9 @@ bindsym $mod+a focus parent
 
 # Name the workspaces
 set $tag0 "0 "
-set $tag1 "1 /"
+set $tag1 "1 x"
 set $tag2 "2 "
-set $tag3 "3 /"
+set $tag3 "3 xx"
 set $tag4 "4 "
 set $tag5 "5 "
 set $tag6 "6 "
@@ -80,7 +80,7 @@ set $tag7 "7 "
 set $tag8 "8 "
 set $tag9 "9 "
 set $tag10 "10 "
-set $tag11 "11 "
+set $tag11 "11 /"
 set $tag12 "12 "
 
 # switch to workspace
@@ -190,7 +190,7 @@ exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
         #set $back #BFBFBFD0
         set $back #0F0F0FD0
         #set $trans #f5f5f5
-        set $text #f5f5f5
+        set $text #ffffff
         set $green #00FF00
         set $wrkback2 #007F00
         set $red #d93e3e
@@ -216,10 +216,9 @@ bar {
     #i3bar_command i3bar
     position top
     #position bottom
-    separator_symbol "  "
     colors {
 
-    background $back
+    background $grey
     statusline $text
     inactive_workspace $back $back $text
     active_workspace $green $back $text
@@ -239,13 +238,8 @@ for_window [class="XTerm"] border pixel 3
 for_window [class="Termite"] border pixel 3
 for_window [class="Gvim"] border pixel 5
 
-bindsym $mod+F1 exec ~/bin/xrandr-1.sh
-bindsym XF86Display exec ~/bin/xrandr-1.sh
-bindsym $mod+F2 exec ~/bin/xrandr-3.sh
 #
-bindsym $mod+F11 exec /usr/bin/firefox -P default-default
-bindsym $mod+F12 exec /usr/bin/firefox -P spotify
-bindsym $mod+n exec ~/bin/rename_workspace.sh
+bindsym $mod+n exec ~/.dotfiles/bin/rename_workspace.sh
 bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/ScreenShots/'
 
 #
