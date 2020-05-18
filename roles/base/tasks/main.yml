@@ -11,7 +11,6 @@
     - unzip
     - whois
     - jq
-    - docker
     - nmap
     - xclip
 
