@@ -1,0 +1,10 @@
+- name: ensure a list of packages installed
+  package:
+    name: "{{ packages }}"
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    packages:
+    - docker
+
