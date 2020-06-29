@@ -253,6 +253,7 @@ bindsym --release $mod+Print exec gnome-screenshot -a
 # Sound
 #
 bindsym $mod+Shift+a exec "pavucontrol"
+bindsym $mod+z exec "pavucontrol"
 
 #
 # Volume
