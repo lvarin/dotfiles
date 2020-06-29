@@ -236,8 +236,8 @@ bar {
 }
 
 # no border for any window
-for_window [class="^.*"] border pixel 1
-for_window [window_role="browser"] border 1pixel
+for_window [class="^.*"] border pixel 3
+for_window [window_role="browser"] border pixel 3
 for_window [class="Mail"] border pixel 3
 for_window [class="Thunderbird"] border pixel 3
 for_window [class="URxvt"] border pixel 3
