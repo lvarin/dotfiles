@@ -247,7 +247,7 @@ for_window [class="Gvim"] border pixel 5
 
 #
 bindsym $mod+n exec ~/.dotfiles/bin/rename_workspace.sh
-bindsym --release $mod+Print exec scrot -s -e 'mv $f ~/ScreenShots/'
+bindsym --release $mod+Print exec gnome-screenshot -a
 
 #
 # Sound
