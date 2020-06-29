@@ -149,6 +149,7 @@ exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id blueberry-tray
 exec --no-startup-id ibus-daemon
+exec --no-startup-id pactl set-default-sink bluez_sink.38_18_4C_84_61_7B.headset_head_unit
 
 #exec --no-startup-id cmst
 exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P default-default"
