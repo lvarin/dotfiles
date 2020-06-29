@@ -28,3 +28,26 @@
   copy:
     src: i3status.conf
     dest: "~/.config/i3/i3status.conf"
+
+#
+# Terminal
+#
+
+- name: Copy .Xdefaults
+  copy:
+    src: "Xdefaults"
+    dest: "~/.Xdefaults"
+
+
+
+- name: Create urxvt config folder
+  file:
+    path: ~/.urxvt/ext
+    state: directory
+
+- name: Copy .urxvt/ext/font-size
+  copy:
+    src: "font-size"
+    dest: "~/.urxvt/ext/font-size"
+
+
