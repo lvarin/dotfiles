@@ -146,6 +146,7 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id ~/bin/laptopDocking.sh
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id blueberry-tray
 exec --no-startup-id ibus-daemon
 
