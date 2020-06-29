@@ -190,6 +190,7 @@ exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
         set $ddgrey #181818
         set $dblue #222e45
         set $lgrey #f5f5f5
+        set $bgrey #6699CC
         set $white #FFFFFF
         #set $back #0053A1
         #set $back #BFBFBFD0
@@ -203,8 +204,8 @@ exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
 
 # class                 border  backgr. text    indicator
 client.focused          $red $hlorange $grey $dgreen
-client.focused_inactive $black $black $white $dgreen
-client.unfocused        $black $black $white $dgreen
+client.focused_inactive $black $white $grey $dgreen
+client.unfocused        $black $white $grey $dgreen
 client.urgent           $orange $orange $red $red
 client.placeholder      $white $lgrey $white $black
 
@@ -223,7 +224,7 @@ bar {
     #position bottom
     colors {
 
-    background $grey
+    background $bgrey
     statusline $text
     inactive_workspace $back $back $text
     active_workspace $green $back $text
