@@ -28,3 +28,6 @@
     - role: terminator
       tags:
         - terminator
+    - role: extra
+      tags:
+        - extra
