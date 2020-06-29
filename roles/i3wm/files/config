@@ -264,14 +264,10 @@ bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
 #
 # Spotify
 #
-bindsym $mod+Insert exec spotify-client pause
-bindsym XF86AudioPlay exec spotify-client prev
-#
-bindsym $mod+Delete exec spotify-client prev
-bindsym XF86Calculator exec spotify-client next
-#
-bindsym $mod+End exec spotify-client next
-bindsym $mod+Home exec spotify-client stop
+bindsym XF86AudioPlay exec ~/.dotfiles/bin/spotify-client pause
+bindsym XF86AudioPrev exec ~/.dotfiles/bin/spotify-client prev
+bindsym XF86AudioNext exec ~/.dotfiles/bin/spotify-client next
+bindsym XF86AudioStop exec ~/.dotfiles/bin/spotify-client stop
 
 # Move workspace to other screen
 bindsym $mod+bracketright move workspace to output right
