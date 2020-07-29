@@ -106,6 +106,8 @@ source $ZSH/oh-my-zsh.sh
 #export GOPATH=$HOME/Code/go
 #export PATH=$PATH:$(go env GOPATH)/bin
 
+command -v kubectl>/dev/null && source <(kubectl completion zsh)
+
 source $HOME/.zsh/aliases.zsh
 source $HOME/.zsh/config.zsh
 source $HOME/.zsh/env.zsh
