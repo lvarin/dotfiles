@@ -29,3 +29,4 @@
     - python-keystoneclient
     - yq
     - asciinema
+    - autorandr
