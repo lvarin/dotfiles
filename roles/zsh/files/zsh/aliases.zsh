@@ -11,3 +11,5 @@ alias vim="vimx"
 alias k="kubectl"
 
 alias timezsh="time zsh -i -c echo"
+
+
