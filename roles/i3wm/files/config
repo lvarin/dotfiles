@@ -75,7 +75,7 @@ set $tag1 "1 x"
 set $tag2 "2 "
 set $tag3 "3 xx"
 set $tag4 "4 "
-set $tag5 "5 "
+set $tag5 "5 slack"
 set $tag6 "6 "
 set $tag7 "7 zoom"
 set $tag8 "8 "
@@ -144,15 +144,20 @@ bindsym $mod+r mode "resize"
 
 # Start up applications
 #exec --no-startup-id ~/bin/laptopDocking.sh
+exec --no-startup-id i3-battery-popup
 exec --no-startup-id compton -b
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id blueberry-tray
 exec --no-startup-id ibus-daemon
-exec --no-startup-id xmodmap ~/.Xmodmap
+exec_always --no-startup-id /usr/bin/xmodmap ~/.Xmodmap
 exec --no-startup-id pactl set-default-sink bluez_sink.38_18_4C_84_61_7B.headset_head_unit
 
 #exec --no-startup-id cmst
 exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P default-default"
+#
+#exec --no-startup-id exec /var/lib/snapd/snap/bin/slack
+exec --no-startup-id exec /var/lib/flatpak/exports/bin/com.slack.Slack
+for_window [class="Slack"] move to workspace $tag5
 #
 exec --no-startup-id exec /usr/bin/thunderbird
 for_window [class="Thunderbird"] move to workspace $tag2
@@ -182,16 +187,19 @@ exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
         set $dgreen #123F28
         set $lgreen #51d893
         set $hlorange #F7923A
+        set $pred #D10028
         set $dgrey #727d85
+        set $ddgrey #232323
         set $grey #303030
         set $lgrey #0c0c0c
         set $blue #00ffff
         set $orange #dc3571
         set $lorange #e69035
+        set $porange #D14200
         set $ddgrey #181818
         set $dblue #222e45
         set $lgrey #f5f5f5
-        set $bgrey #6699CC
+        set $bblue #6699CC
         set $white #FFFFFF
         #set $back #0053A1
         #set $back #BFBFBFD0
@@ -204,7 +212,7 @@ exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
 
 
 # class                 border  backgr. text    indicator
-client.focused          $red $hlorange $grey $dgreen
+client.focused          $red $lgreen $grey $dgreen
 client.focused_inactive $black $white $grey $dgreen
 client.unfocused        $black $white $grey $dgreen
 client.urgent           $orange $orange $red $red
@@ -217,6 +225,7 @@ client.placeholder      $white $lgrey $white $black
 
 bar {
     status_command i3status --config ~/.config/i3/i3status.conf
+    #status_command ~/.local/bin/py3status #--config ~/.config/i3/i3status.conf
     #status_command i3blocks -c ~/.config/i3/i3blocks.conf
     #status_command ~/bin/bar.sh
     #i3bar_command i3bar -t
@@ -225,7 +234,7 @@ bar {
     #position bottom
     colors {
 
-    background $bgrey
+    background $ddgrey
     statusline $text
     inactive_workspace $back $back $text
     active_workspace $green $back $text
@@ -250,9 +259,13 @@ bindsym $mod+n exec ~/.dotfiles/bin/rename_workspace.sh
 bindsym --release $mod+Print exec gnome-screenshot -a
 
 #
+# Autorand
+bindsym $mod+c exec autorand -c
+
+
+#
 # Sound
 #
-bindsym $mod+Shift+a exec "pavucontrol"
 bindsym $mod+z exec "pavucontrol"
 
 #
@@ -268,7 +281,8 @@ bindsym XF86AudioPlay exec ~/.dotfiles/bin/spotify-client pause
 bindsym XF86AudioPrev exec ~/.dotfiles/bin/spotify-client prev
 bindsym XF86AudioNext exec ~/.dotfiles/bin/spotify-client next
 bindsym XF86AudioStop exec ~/.dotfiles/bin/spotify-client stop
-
+#
+bindsym $mod+x exec autorandr -c
 # Move workspace to other screen
 bindsym $mod+bracketright move workspace to output right
 bindsym $mod+bracketleft move workspace to output left
