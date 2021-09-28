@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 
-pactl set-default-sink bluez_sink.38_18_4C_84_61_7B.headset_head_unit
-
 ACTION=$1
 
 if [ -z "$ACTION" ];
@@ -11,5 +9,11 @@ then
   exit 1
 fi
 
-pactl set-sink-volume @DEFAULT_SINK@ "$ACTION"
+pactl set-sink-volume 0 "$ACTION"
 
+VOL=$(pactl list sinks | egrep '[[:blank:]]Volume:' -w | awk '{print $5}' | head -1)
+
+for s in $(pactl list sinks | grep Sink | awk -F\# '{print $2}');
+do
+  [[ $s -ne 0 ]] && pactl set-sink-volume $s $VOL
+done
