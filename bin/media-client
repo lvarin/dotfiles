@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+
+# DEST='org.mpris.MediaPlayer2.spotify'
+#DEST='org.mpris.MediaPlayer2.firefox.instance8835'
+DEST=$(dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}')
+
+COMMAND=$1
+
+if [ -z $COMMAND ]; then
+    echo "Use: $0 <pause/next/prev/stop>"
+    exit 1
+fi
+
+case $COMMAND in
+    'pause')
+        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    ;;
+
+    'next')
+        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    ;;
+
+    'prev')
+        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    ;;
+
+    'stop')
+        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+    ;;
+    *)
+        echo "Use: $0 <pause/next/prev/stop>"
+        exit 2
+    ;;
+esac
