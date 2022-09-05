@@ -9,7 +9,9 @@ then
   exit 1
 fi
 
-pactl set-sink-volume 0 "$ACTION"
+DEFAULT_SINK=$(pactl list sinks | grep ^Sink | head -1 | awk -F\# '{print $2}')
+
+pactl set-sink-volume $DEFAULT_SINK "$ACTION"
 
 VOL=$(pactl list sinks | egrep '[[:blank:]]Volume:' -w | awk '{print $5}' | head -1)
 
