@@ -1,3 +1,3 @@
 #!/bin/bash
 
-firefox -P ninja
+firefox -P green
