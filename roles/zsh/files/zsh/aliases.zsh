@@ -5,9 +5,9 @@ alias pkill!="pkill -9 -f "
 alias lj='jobs'
 
 alias reload!='. ~/.zshrc'
-alias vi="vimx"
-alias v="vimx"
-alias vim="vimx"
+alias vi="nvim"
+alias v="nvim"
+alias vim="nvim"
 alias k="kubectl"
 
 alias timezsh="time zsh -i -c echo"

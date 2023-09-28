@@ -14,12 +14,14 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+#set $term foot
+set $term gnome-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi
+#set $menu wofi
+set $menu rofi -show drun -modi run -show-icons
 
 
 #
@@ -44,16 +46,17 @@ output * bg ~/Pictures/mkbhd.jpg fill
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
+output DP-1 resolution 2560x1440 position 1920,0
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+        before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -81,7 +84,7 @@ output * bg ~/Pictures/mkbhd.jpg fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+slash exec $menu
@@ -186,6 +189,20 @@ output * bg ~/Pictures/mkbhd.jpg fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+#
+# Audio
+#
+bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
+bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
+bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
+bindsym XF86AudioPlay exec ~/.dotfiles/bin/media-client pause
+bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
+bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
+bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
+
+#
+
 #
 # Resizing containers:
 #

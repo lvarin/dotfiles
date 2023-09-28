@@ -5,6 +5,12 @@
 #DEST='org.mpris.MediaPlayer2.firefox.instance8835'
 DEST=$(dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}')
 
+if [ -z "$DEST" ];
+then
+    echo "Cannot find a running media player"
+    exit 2
+fi
+
 COMMAND=$1
 
 if [ -z $COMMAND ]; then

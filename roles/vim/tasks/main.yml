@@ -1,8 +1,7 @@
 - name: Install vim
   package:
     name:
-    - vim
-    - vim-X11
+    - nvim
     state: present
   become_user: root
   become: true
