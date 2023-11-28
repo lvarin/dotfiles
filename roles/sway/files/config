@@ -80,6 +80,7 @@ exec swayidle -w \
 # Autostart
 #
 exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet --sm-disable
 
 ### Key bindings
 #
