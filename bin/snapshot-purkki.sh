@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-SYNC_FOLDERS=".config .mozilla .thunderbird .docker .zsh .oh-my-zsh .zoom .urxvt src Music Videos Pictures Documents Templates"
+SYNC_FOLDERS=".dotfiles .config .mozilla .thunderbird .docker .zsh .oh-my-zsh .zoom .urxvt src Music Videos Pictures Documents Templates"
 SYNC_FILES=".zshrc .Xdefaults* .vault_pass.txt .zsh_history"
 
 cd $HOME
