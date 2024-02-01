@@ -1,0 +1,3 @@
+#!/bin/bash
+#
+rdesktop luna.windows.csc.fi -r disk:home=$HOME -d windows -z -ken-us -g 1920x1080

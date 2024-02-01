@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+URL=$1
+
+if [ -z "$URL" ];
+then
+  echo "Use: $0 <URL>"
+fi
+
+WEBZOOM=$(echo $URL | sed -e 's#https://.*zoom.us/my/\(.*\)?pwd=\(.*\)#https://app.zoom.us/wc/join/\1?fromPWA=1\&pwd=\2#')
+
+echo "chromium-browser $WEBZOOM"

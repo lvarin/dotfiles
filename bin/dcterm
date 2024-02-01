@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+
+ENV_NAME=$1
+
+VAULTPASS='/dev/shm/secret/vaultpass'
+
+cd ~/src/poc
+
+sudo test -f "$VAULTPASS" || {
+  keepassxc
+  sudo scripts/read_vault_pass_from_clipboard.bash
+}
+
+sudo scripts/dcterm.bash "$ENV_NAME"
+

@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+# Checking that podman and clamscan are installed
+command -V podman >/dev/null
+command -V clamscan >/dev/null
+
+IMAGE_NAME=$1
+
+if [ -z "$IMAGE_NAME" ];
+then
+  echo "Use: $0 <IMAGE_NAME>";
+  exit 1
+fi
+
+echo -n " * Pulling the image and mounting it  "
+
+IMAGE_ID=$(podman create "$IMAGE_NAME")
+FOLDER=$(podman mount "$IMAGE_ID")
+
+echo "DONE"
+
+echo " * Scanning for viruses "
+
+clamscan -r -i "$FOLDER"
+
+
+podman umount "$IMAGE_ID" >/dev/null
+
