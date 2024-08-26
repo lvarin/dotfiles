@@ -16,11 +16,11 @@ bindsym $mod+backslash exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+slash exec dmenu_run -l 15 -p ">:" -b
 bindsym $mod+slash exec rofi -show drun -modi run -show-icons
+bindsym $mod+shift+slash exec rofi -show drun -modi run -show-icons
 #bindsym $mod+slash exec rofi -show run -modi run -width 70 \
 #		 -lines 12 -line-margin 0 -line-padding 1 \
 #		 -separator-style none -font "Noto 12" -columns 3 -bw 5 \
@@ -154,7 +154,7 @@ exec_always --no-startup-id /usr/bin/xmodmap ~/.Xmodmap
 exec --no-startup-id pactl set-default-sink bluez_sink.38_18_4C_84_61_7B.headset_head_unit
 
 #exec --no-startup-id cmst
-exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P Default-user"
+#exec --no-startup-id i3-msg "workspace $tag1; exec /usr/bin/firefox -P Default-user"
 #
 #exec --no-startup-id exec /var/lib/snapd/snap/bin/slack
 exec --no-startup-id exec /var/lib/flatpak/exports/bin/com.slack.Slack
@@ -164,7 +164,7 @@ for_window [class="Slack"] move to workspace $tag5
 #for_window [class="Mail"] move to workspace $tag2
 #
 #exec --no-startup-id i3-msg "workspace 4 ; exec /usr/bin/termite"
-exec --no-startup-id i3-msg "workspace $tag4; exec i3-sensible-terminal"
+# exec --no-startup-id i3-msg "workspace $tag4; exec i3-sensible-terminal"
 #
 exec --no-startup-id i3-msg exec /usr/bin/spotify
 for_window [class="Spotify"] move to workspace $tag12
@@ -180,6 +180,7 @@ for_window [class="Pinentry"] floating enable
 for_window [class="nm-connection-editor"] floating enable
 for_window [class="Ibus-extension-gtk3"] floating enable
 for_window [class="Blueberry.py"] floating enable
+for_window [class="Alert"] floating enable
 #
 exec --no-startup-id feh --bg-fill Pictures/Wallpaper.jpg
 
@@ -230,6 +231,7 @@ client.placeholder      $white $lgrey $white $black
 #exec_always --no-startup-id $HOME/.local/bin/polybar
 
 bar {
+    tray_output primary
     status_command i3status --config ~/.config/i3/i3status.conf
     #status_command ~/Downloads/trivial-bar-script.sh
     font pango:Roboto Medium 11
@@ -259,26 +261,26 @@ for_window [class="Gvim"] border pixel 5
 #
 bindsym $mod+n exec ~/.dotfiles/bin/rename_workspace.sh
 bindsym --release $mod+Print exec gnome-screenshot -a
-
-#
-# Autorand
-bindsym $mod+c exec autorand -c
-
-
+bindsym $mod+x exec /usr/bin/arandr 
+bindsym XF86Display exec /usr/bin/arandr
 #
 # Sound
 #
 bindsym $mod+z exec "pavucontrol"
+# Language
+bindsym $mod+l exec "setxkbmap -layout us"
 
 #
 # Volume
 #
 bindsym $mod+F11 exec ~/.dotfiles/bin/volume.sh -5%
 bindsym $mod+F12 exec ~/.dotfiles/bin/volume.sh +5%
-bindsym $mod+Insert exec ~/.dotfiles/bin/media-client pause
+bindsym $mod+End exec ~/.dotfiles/bin/media-client pause
 #
 bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
+bindsym $mod+XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +1%
 bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
+bindsym $mod+XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -1%
 bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
 #
 # Spotify
@@ -288,10 +290,12 @@ bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
 bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
 bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
 #
-bindsym $mod+x exec autorandr -c
 # Move workspace to other screen
 bindsym $mod+bracketright move workspace to output right
 bindsym $mod+bracketleft move workspace to output left
+bindsym $mod+Next move workspace to output down
+bindsym $mod+Prior move workspace to output up
+
 bindsym $mod+Shift+Home move workspace to output eDP1
 ###############################################################################
 

@@ -4,11 +4,11 @@
       - i3
       - i3status
       - i3lock
-      - network-manager-applet
+      #- network-manager-applet
       - pavucontrol
-      - google-roboto-fonts
+      - fonts-roboto
       - rxvt-unicode
-      - fontawesome-fonts
+      - fonts-font-awesome
     state: present
   become_user: root
   become: true

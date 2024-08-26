@@ -1,7 +1,7 @@
 - name: Install vim
   package:
     name:
-    - nvim
+    - neovim
     state: present
   become_user: root
   become: true

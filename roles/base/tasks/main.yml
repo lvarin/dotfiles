@@ -14,7 +14,8 @@
     - nmap
     - xclip
     - iftop
-    - blueberry
+    - python3-pip
+    - flatpak
 
 - name: ensure a list of Python3 packages to be installed
   pip:

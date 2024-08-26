@@ -5,7 +5,7 @@
   when: ansible_os_family == "RedHat"
 
 - name: Install python
-  package: name=python state=present
+  package: name=python3 state=present
   become_user: root
   become: true
   become_method: sudo

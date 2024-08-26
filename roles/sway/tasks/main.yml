@@ -1,0 +1,40 @@
+- name: Install i3wmn
+  package:
+    name:
+      - sway
+      - waybar
+      - swaylock
+      #- network-manager-applet
+      - pavucontrol
+      - fonts-roboto
+      - rxvt-unicode
+      - fonts-font-awesome
+    state: present
+  become_user: root
+  become: true
+  become_method: sudo
+
+- name: Create config folder
+  file:
+    path: ~/.config/sway/
+    state: directory
+
+- name: Copy .config/sway/config
+  copy:
+    src: "config"
+    dest: "~/.config/sway/config"
+
+- name: Create config folder
+  file:
+    path: ~/.config/waybar/
+    state: directory
+
+- name: Copy .config/waybar/config
+  copy:
+    src: waybar-config
+    dest: "~/.config/waybar/config"
+
+- name: .config/sway/style.css
+  copy:
+    src: style.css
+    dest: "~/.config/waybar/style.css"

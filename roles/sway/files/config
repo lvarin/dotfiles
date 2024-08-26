@@ -15,7 +15,8 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 #set $term foot
-set $term gnome-terminal
+set $term terminator
+# gnome-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -40,7 +41,7 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/mkbhd.jpg fill
+output * bg ~/Pictures/Wallpaper.jpg fill
 #
 # Example configuration:
 #
@@ -81,7 +82,8 @@ exec swayidle -w \
 #
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet --sm-disable
-
+exec --no-startup-id gnome-keyring-daemon
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 ### Key bindings
 #
 # Basics:
@@ -93,7 +95,7 @@ exec --no-startup-id nm-applet --sm-disable
     bindsym $mod+Escape exec swaylock -f -c 000000
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+shift+q kill
 
     # Start your launcher
     bindsym $mod+slash exec $menu

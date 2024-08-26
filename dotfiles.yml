@@ -25,9 +25,9 @@
     - role: i3wm
       tags:
         - i3wm
+    - role: sway
+      tags:
+        - sway
     - role: terminator
       tags:
         - terminator
-    - role: extra
-      tags:
-        - extra
