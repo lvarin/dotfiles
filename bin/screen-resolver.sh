@@ -53,14 +53,14 @@ then
   exit 0
 fi
 
-for conn in $CONNECTED;
-do
-  echo "$ACTIVE" | grep -w -q "$conn" || enable "$conn"
-done
-
 for act in $ACTIVE;
 do
   echo "$CONNECTED" | grep -w -q "$act" || disable "$act"
+done
+
+for conn in $CONNECTED;
+do
+  echo "$ACTIVE" | grep -w -q "$conn" || enable "$conn"
 done
 
 wallpaper
