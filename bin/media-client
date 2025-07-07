@@ -1,9 +1,22 @@
 #!/bin/bash
 #
 
+function status() {
+   DEST=$1
+	 dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'| grep "string" | awk -F\" '{print $2}'
+}
+
+function readable() {
+  echo "${1/org\.mpris\.MediaPlayer2./}"
+}
+
+function get_destinations() {
+  dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}'
+}
+
 # DEST='org.mpris.MediaPlayer2.spotify'
 #DEST='org.mpris.MediaPlayer2.firefox.instance8835'
-DESTINATIONS=$(dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}')
+DESTINATIONS=$(get_destinations)
 
 if [ -z "$DESTINATIONS" ];
 then
@@ -13,45 +26,56 @@ fi
 
 COMMAND=$1
 
-if [ -z $COMMAND ]; then
+if [ -z "$COMMAND" ]; then
     echo "Use: $0 <pause/next/prev/stop>"
     exit 1
 fi
- 
-if [[ $(echo $DESTINATIONS | wc -w) > 1 ]];
-then
-   notify-send "sound" "$DESTINATIONS"
-   COMMAND='stop'
-   # DESTINATIONS=$DESTINATIONS[0]
-fi
 
-echo $DESTINATIONS
+COUNT=$(dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}' | wc -w)
 
 for DEST in $DESTINATIONS;
 do
   case $COMMAND in
     'pause')
-        notify-send "🛑/▶️"
-        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+      if [ "Playing" == "$(status "$DEST")" ]
+      then
+        COMMAND='stop'
+      fi
+    ;;
+  esac
+done
+
+
+for DEST in $DESTINATIONS;
+do
+  case $COMMAND in
+    'pause')
+      notify-send "🛑/▶️  $(readable "$DEST")"
+        dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+        if [ "$COUNT" -gt 1 ];
+        then
+          COMMAND='stop'
+        fi
     ;;
 
     'next')
         notify-send "⏭️"
-        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+        dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
     ;;
 
     'prev')
-        notify-send "⏮️"      
-        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+        notify-send "⏮️"
+        dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
 
     'stop')
-        notify-send "🛑"
-        dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+      notify-send "🛑 $(readable "$DEST")"
+      dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
     ;;
     'status')
-        echo -n "$DEST " 
-	dbus-send --print-reply --dest=$DEST /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'| grep "string" | awk -F\" '{print $2}'
+
+      echo "$(readable "$DEST") $(status "$DEST")"
     ;;
     *)
         echo "Use: $0 <pause/next/prev/stop>"
