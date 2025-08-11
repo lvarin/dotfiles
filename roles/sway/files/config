@@ -14,8 +14,8 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-#set $term foot
-set $term terminator
+set $term foot
+#set $term terminator
 # gnome-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -83,6 +83,8 @@ exec swayidle -w \
 exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id gnome-keyring-daemon
+exec --no-startup-id keepassxc
+exec --no-startup-id nextcloud
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 ### Key bindings
 #
@@ -101,7 +103,10 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
     bindsym $mod+slash exec $menu
 
     # Screen Shot
-    bindsym $mod+Print exec grim -g "$(slurp)"
+    #bindsym $mod+Print exec grim -g "$(slurp)"
+
+    # Open display manager
+    bindsym $mod+x exec wdisplays
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -109,6 +114,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+
+    for_window [app_id="zenity"] floating enable
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -222,15 +229,20 @@ bindsym $mod+bracketleft move workspace to output left
     bindsym $mod+a focus parent
 
 #
+# Screenshot
+#
+    bindsym $mod+Print exec grimshot save area
+    bindsym $mod+n exec .dotfiles/bin/rename_workspace.sh
+#
 # Audio
 #
-bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
-bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
-bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
-bindsym XF86AudioPlay exec ~/.dotfiles/bin/media-client pause
-bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
-bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
-bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
+    bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
+    bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
+    bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
+    bindsym XF86AudioPlay exec ~/.dotfiles/bin/media-client pause
+    bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
+    bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
+    bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
 
 #
 

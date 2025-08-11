@@ -1,8 +1,8 @@
 {
     "height": 40,
     "spacing": 4,
-    "modules-left": ["clock", "sway/mode"],
-    "modules-center": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
     "modules-right": ["pulseaudio", "battery", "tray"],
     "keyboard-state": {
         "numlock": true,
