@@ -48,6 +48,7 @@ output * bg ~/Pictures/Wallpaper.jpg fill
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 output DP-1 resolution 2560x1440 position 1920,0
+output DP-7  transform 270
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -77,6 +78,11 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input * {
+    xkb_layout us,fi
+    xkb_options grp:win_space_toggle
+}
+
 #
 # Autostart
 #
@@ -101,6 +107,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 
     # Start your launcher
     bindsym $mod+slash exec $menu
+
+    bindsym $mod+shift+i exec wofi-emoji
 
     # Screen Shot
     #bindsym $mod+Print exec grim -g "$(slurp)"
@@ -154,19 +162,19 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 # Move around
 #
 # Name the workspaces
-set $tag0 "0 "
-set $tag1 "1 x"
-set $tag2 "2 "
-set $tag3 "3 xx"
-set $tag4 "4 "
-set $tag5 "5 "
-set $tag6 "6 "
-set $tag7 "7 zoom"
-set $tag8 "8 "
-set $tag9 "9 "
-set $tag10 "10 "
-set $tag11 "11 /"
-set $tag12 "12 "
+set $tag0 "0"
+set $tag1 "1"
+set $tag2 "2"
+set $tag3 "3"
+set $tag4 "4"
+set $tag5 "5"
+set $tag6 "6"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag10 "10"
+set $tag11 "11"
+set $tag12 "12"
 
 # switch to workspace
 bindsym $mod+grave workspace number $tag0
@@ -223,7 +231,7 @@ bindsym $mod+bracketleft move workspace to output left
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    #bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent

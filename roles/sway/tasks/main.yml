@@ -38,3 +38,5 @@
   copy:
     src: style.css
     dest: "~/.config/waybar/style.css"
+
+#  sudo aa-disable /etc/apparmor.d/fr.emersion.Mako

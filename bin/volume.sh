@@ -24,3 +24,5 @@ do
     [[ $s -ne 0 ]] && pactl set-sink-volume $s $VOL
   fi
 done
+
+notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL "Volume: ${VOL}"

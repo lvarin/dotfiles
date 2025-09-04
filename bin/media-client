@@ -50,7 +50,7 @@ for DEST in $DESTINATIONS;
 do
   case $COMMAND in
     'pause')
-      notify-send "🛑/▶️  $(readable "$DEST")"
+      notify-send -a 'media-client' "🛑/▶️  $(readable "$DEST")"
         dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
         if [ "$COUNT" -gt 1 ];
@@ -60,17 +60,17 @@ do
     ;;
 
     'next')
-        notify-send "⏭️"
+        notify-send -a 'media-client' "⏭️"
         dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
     ;;
 
     'prev')
-        notify-send "⏮️"
+        notify-send -a 'media-client'  "⏮️"
         dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
     ;;
 
     'stop')
-      notify-send "🛑 $(readable "$DEST")"
+      notify-send -a 'media-client'  "🛑 $(readable "$DEST")"
       dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
     ;;
     'status')

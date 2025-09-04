@@ -28,6 +28,7 @@ window#waybar.hidden {
 #network,
 #pulseaudio,
 #custom-media,
+#custom-layout,
 #tray,
 #mode,
 #workspaces,
@@ -37,13 +38,20 @@ window#waybar.hidden {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
     color: white;
     background-color: black;
 }
 
+#language {
+/*    snip  */
+    min-width: 30px;
+}
+
 #workspaces {
+    padding-left: 0px;
+    padding-right: 0px;
     /* background: rgba(40, 42, 54, 0.95); */
     background: rgba(200, 200, 200, 0.2);
 }
@@ -142,6 +150,7 @@ label:focus {
 #network {
     background-color: #2980b9;
 }
+
 
 #network.disconnected {
     background-color: #f53c3c;
