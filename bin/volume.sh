@@ -25,4 +25,4 @@ do
   fi
 done
 
-notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL "Volume: ${VOL}"
+notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL " ${VOL}"
