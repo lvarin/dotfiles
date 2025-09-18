@@ -1,6 +1,14 @@
 #!/bin/bash
 #
 
+function isMuted() {
+  SINK=$1
+
+  [[ "$(pactl get-sink-mute $SINK | awk '{print $2}')" == 'yes' ]] && return 0
+
+  return 1
+}
+
 ACTION=$1
 
 if [ -z "$ACTION" ];
@@ -14,7 +22,6 @@ DEFAULT_SINK=$(pactl list sinks | grep ^Sink | head -1 | awk -F\# '{print $2}')
 pactl set-sink-volume $DEFAULT_SINK "$ACTION"
 
 VOL=$(pactl list sinks | egrep '[[:blank:]]Volume:' -w | awk '{print $5}' | head -1)
-
 for s in $(pactl list sinks | grep Sink | awk -F\# '{print $2}');
 do
   if [[ "$ACTION" == "toggle" ]];
@@ -25,4 +32,9 @@ do
   fi
 done
 
-notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL " ${VOL}"
+if isMuted $DEFAULT_SINK;
+then
+  notify-send -t 1000 -a 'wp-vol' "🔇"
+else
+  notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL " ${VOL}"
+fi

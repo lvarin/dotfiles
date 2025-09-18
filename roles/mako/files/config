@@ -1,7 +1,11 @@
 sort=-time
 layer=overlay
-background-color=#E0F7FA
-border-color=#4DD0E1
+#background-color=#E0F7FA
+#background-color=#95bfef
+background-color=#47748b
+#border-color=#4DD0E1
+#border-color=#95bfef
+border-color=#47748b
 width=500
 height=500
 border-size=5
@@ -12,18 +16,30 @@ default-timeout=5000
 ignore-timeout=1
 font=monospace 14
 text-color=#000000
+anchor=top-center
 
 [urgency=low]
-border-color=#FFE082
-background-color=#FFF9C4
+#border-color=#FFE082
+#border-color=#ffffd7
+border-color=#ffffff
+#background-color=#FFF9C4
+#background-color=#ffffd7
+background-color=#eccca6
 
 [urgency=normal]
-border-color=#4DD0E1
-background-color=#E0F7FA
+#border-color=#4DD0E1
+#border-color=#95bfef
+border-color=#47748b
+#background-color=#E0F7FA
+#background-color=#95bfef
+border-color=#47748b
 
 [urgency=high]
-border-color=#F44336
-background-color=#FFCDD2
+#border-color=#B02F00
+border-color=#e95c6c
+#background-color=#FFCDD2
+background-color=#e95c6c
+default-timeout=10000
 
 [app-name=wp-vol]
 layer=overlay

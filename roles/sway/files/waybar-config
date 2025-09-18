@@ -1,23 +1,29 @@
 {
     "height": 10,
     "spacing": 2,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "custom/layout", "battery", "idle_inhibitor", "tray"],
+
+    "modules-left": ["custom/launcher", "sway/workspaces"],
+    "modules-center": ["sway/mode", "sway/window"],
+    "modules-right": ["custom/layout", "idle_inhibitor", "tray", "pulseaudio", "battery", "clock", "custom/power"],
     "custom/layout": {
       "exec": "swaymsg -t get_inputs | jq -r '.[] | select(.type==\"keyboard\") | .xkb_active_layout_name' | head -n1 | awk '{ if ($0 ~ /English/) print \"🇬🇧\"; else if ($0 ~ /Finnish/) print \"🇫🇮\"; else print $0 }'",
       "interval": 1
     },
-    "keyboard-state": {
-      "device": "*",
-      "format": "{layout}",
+    "sway/workspaces": {
+	    "disable-scroll": true,
+	    "format": "{name}: {icon}",
       "format-icons": {
-        "us": "US",
-        "fi": "FI"
-      }
+        "urgent": "",
+        "focused": "",
+        "default": "⃝",
+        "visible": "⦾"
+	    }
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/language": {
+    "format": "{flag}{shortDescription} {variant}",
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -31,8 +37,9 @@
         "spacing": 7
     },
     "clock": {
-        "format": "{: %Y %b %d  %H:%M}",
-        "format-alt": "{: %a - %Y %b %d - w%W  %H:%M %z}",
+        "format": "{:  %H:%M}",
+        "format-alt": "{: %a %b %d  %H:%M}",
+        "tooltip-format": "{: %a - %Y %b %d - w%W  %H:%M:%S %z}",
     },
     "battery": {
         "states": {
@@ -40,20 +47,21 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon}",
+        "format-charging": "   {capacity}%",
+        "format-plugged": "   {capacity}%",
+        "format-alt": "{time} {icon} {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
+        //"tooltip-format": "{icon} {capacity}",
         "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": "x {icon}  {format_source}",
-        "format-muted": "x {format_source}",
+        "format": "{icon}",
+        "format-bluetooth": "{icon} ",
+        "format-bluetooth-muted": "x {icon} ",
+        "format-muted": "x",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -65,7 +73,19 @@
             "car": "",
             "default": ["", "", ""]
         },
+        "tooltip-format": "{icon} {volume}%",
         "on-click": "pavucontrol"
-    }
+    },
+    "custom/power": {
+      "format": "",
+      "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Hibernate' 'systemctl hibernate' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33",
+      "return-type": "json",
+      "escape": true
+    },
+"custom/launcher": {
+    "format": "🐧",                 // an icon (Font Awesome magnifying glass)
+    "tooltip": "App Launcher",
+    "on-click": "wofi --show drun", // command to run on click
+    "interval": 0                  // no need to refresh
+  }
 }
-
