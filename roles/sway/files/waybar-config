@@ -53,7 +53,7 @@
         "format-alt": "{time} {icon} {capacity}%",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        //"tooltip-format": "{icon} {capacity}",
+        "tooltip-format": "{capacity}% - {time}",
         "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
