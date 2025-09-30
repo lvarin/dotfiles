@@ -2,10 +2,10 @@ sort=-time
 layer=overlay
 #background-color=#E0F7FA
 #background-color=#95bfef
-background-color=#47748b
+background-color=#47748baa
 #border-color=#4DD0E1
 #border-color=#95bfef
-border-color=#47748b
+border-color=#47748baa
 width=500
 height=500
 border-size=5
@@ -21,24 +21,24 @@ anchor=top-center
 [urgency=low]
 #border-color=#FFE082
 #border-color=#ffffd7
-border-color=#ffffff
+border-color=#ffffff99
 #background-color=#FFF9C4
 #background-color=#ffffd7
-background-color=#eccca6
+background-color=#eccca699
 
 [urgency=normal]
 #border-color=#4DD0E1
 #border-color=#95bfef
-border-color=#47748b
+border-color=#47748bcc
 #background-color=#E0F7FA
 #background-color=#95bfef
-border-color=#47748b
+background-color=#47748bcc
 
 [urgency=high]
 #border-color=#B02F00
-border-color=#e95c6c
+border-color=#e95c6c99
 #background-color=#FFCDD2
-background-color=#e95c6c
+background-color=#e95c6c99
 default-timeout=10000
 
 [app-name=wp-vol]
@@ -52,6 +52,11 @@ format=<b>%s</b>\n%b
 
 [app-name=Spotify]
 anchor=top-center
+
+[app-name=media-client]
+width=250
+background-color=#99999999
+border-color=#99999955
 
 [app-name=volume group-index=0]
 # Only show last notification
