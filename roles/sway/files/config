@@ -57,12 +57,9 @@ output DP-5  transform 270
 # Example configuration:
 #
 exec swayidle -w \
-        timeout 300 'notify-send "Goint to sleep in 5 seconds..." -u critical' \
-        timeout 301 'notify-send "Goint to sleep in 4 seconds..." -u critical' \
-        timeout 302 'notify-send "Goint to sleep in 3 seconds..." -u critical' \
-        timeout 303 'notify-send "Goint to sleep in 2 seconds..." -u critical' \
-        timeout 304 'notify-send "Goint to sleep in 1 seconds..." -u critical' \
-        timeout 305 'swaylock -f -c 000000' \
+        timeout 290 'notify-send "Goint to sleep in 10 seconds..." -u critical' \
+        timeout 295 'notify-send "Goint to sleep in 5 seconds..." -u critical' \
+        timeout 300 'swaylock -f -c 000000' \
         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         before-sleep 'swaylock -f -c 000000'
 #
@@ -131,6 +128,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
     floating_modifier $mod normal
 
     for_window [app_id="zenity"] floating enable
+    for_window [app_id="yad"] floating enable
     for_window [app_id="nm-openconnect-auth-dialog"] floating enable
 
     # Reload the configuration file

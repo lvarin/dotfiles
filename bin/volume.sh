@@ -34,7 +34,7 @@ done
 
 if isMuted $DEFAULT_SINK;
 then
-  notify-send -t 1000 -a 'wp-vol' "🔇"
+  notify-send -t 1000 -a 'wp-vol' "🔇 MUTED"
 else
-  notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL " ${VOL}"
+  notify-send -t 1000 -a 'wp-vol' -h int:value:$VOL "${VOL}" -i /usr/share/icons/Paper/48x48/apps/volume-knob.png
 fi

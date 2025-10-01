@@ -38,8 +38,9 @@
     },
     "clock": {
         "format": "{:  %H:%M}",
-        "format-alt": "{: %a %b %d  %H:%M}",
+        // "format-alt": "{: %a %b %d  %H:%M}",
         "tooltip-format": "{: %a - %Y %b %d - w%W  %H:%M:%S %z}",
+        "on-click": "gsimplecal",
     },
     "battery": {
         "states": {
@@ -59,8 +60,8 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}",
-        "format-bluetooth": "{icon} ",
-        "format-bluetooth-muted": "x {icon} ",
+        "format-bluetooth": "{icon} ()",
+        "format-bluetooth-muted": "x {icon} ()",
         "format-muted": "x",
         "format-source": "{volume}% ",
         "format-source-muted": "",
