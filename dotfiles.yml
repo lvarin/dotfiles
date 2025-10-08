@@ -25,6 +25,9 @@
     - role: i3wm
       tags:
         - i3wm
+    - role: mako
+      tags:
+        - mako
     - role: sway
       tags:
         - sway
