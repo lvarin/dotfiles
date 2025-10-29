@@ -37,8 +37,8 @@
         "spacing": 7
     },
     "clock": {
-        "format": "{:  %H:%M}",
-        // "format-alt": "{: %a %b %d  %H:%M}",
+        // "format": "{: %H:%M}",
+        "format": "{:  %b %d %a  %H:%M}",
         "tooltip-format": "{: %a - %Y %b %d - w%W  %H:%M:%S %z}",
         "on-click": "gsimplecal",
     },
@@ -79,7 +79,8 @@
     },
     "custom/power": {
       "format": "",
-      "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Hibernate' 'systemctl hibernate' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33",
+      // "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'suspend' 'systemctl suspend' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33",
+      "on-click": "wlogout",
       "return-type": "json",
       "escape": true
     },
