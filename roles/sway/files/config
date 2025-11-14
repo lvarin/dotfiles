@@ -32,7 +32,7 @@ gaps outer 5
 smart_gaps on
 smart_borders no_gaps
 default_border pixel 5
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 5
 #
 
 include /etc/sway/config-vars.d/*
@@ -60,7 +60,6 @@ exec swayidle -w \
         timeout 290 'notify-send "Goint to sleep in 10 seconds..." -u critical' \
         timeout 295 'notify-send "Goint to sleep in 5 seconds..." -u critical' \
         timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -114,11 +113,17 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 
     bindsym $mod+shift+i exec wofi-emoji
 
-    # Screen Shot
-    #bindsym $mod+Print exec grim -g "$(slurp)"
+    # Record screen
+    bindsym Ctrl+Alt+Shift+r exec wf-recorder  -f ~/Pictures/mov-$(date +"%Y-%m-%d--%H-%M-%S.mp4") -a
+    bindsym $mod+Shift+BackSpace exec killall -s SIGINT wf-recorder
 
     # Open display manager
-    bindsym $mod+x exec wdisplays
+    # set $dark GTK_THEME=Adwaita:dark
+    # bindsym $mod+x exec $dark wdisplays
+    bindsym $mod+XF86Display exec wdisplays
+
+    # Logout, lock, suspend, hibernate, poweroff, revboot
+    bindsym $mod+Shift+p exec wlogout
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -246,6 +251,18 @@ bindsym $mod+bracketleft move workspace to output left
 # Screenshot
 #
     bindsym $mod+Print exec grimshot save area
+
+#
+# Record screen
+#
+    bindsym $mod+Shift+r exec ~/.dotfiles/bin/record-screen.sh start
+    bindsym $mod+Shift+s exec ~/.dotfiles/bin/record-screen.sh stop
+
+#
+# Record screen
+#
+#    bindsym $mod+Shift+Print exec wf-recorder -g "$(slurp)"
+
     bindsym $mod+n exec .dotfiles/bin/rename_workspace.sh
 #
 # Audio
@@ -309,4 +326,6 @@ bar swaybar_command waybar
 include /etc/sway/config.d/*
 
 
-client.focused              #FF0000 #2f343f #4477ff #4477ff   #4477ff
+client.focused              #4477ff #50505090 #ffffff #4477ff   #4477ff
+client.focused_inactive     #555555 #32323290 #ffffff #4477ff   #555555
+client.unfocused            #555555 #00000090 #ffffff #4477ff   #555555

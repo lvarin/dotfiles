@@ -4,7 +4,7 @@
 
     "modules-left": ["custom/launcher", "sway/workspaces"],
     "modules-center": ["sway/mode"],
-    "modules-right": ["custom/layout", "idle_inhibitor", "tray", "pulseaudio", "battery", "clock", "custom/power"],
+    "modules-right": ["custom/recorder", "custom/layout", "idle_inhibitor", "tray", "pulseaudio", "battery", "clock", "custom/power"],
     "custom/layout": {
       "exec": "swaymsg -t get_inputs | jq -r '.[] | select(.type==\"keyboard\") | .xkb_active_layout_name' | head -n1 | awk '{ if ($0 ~ /English/) print \"🇬🇧\"; else if ($0 ~ /Finnish/) print \"🇫🇮\"; else print $0 }'",
       "interval": 1
@@ -84,10 +84,14 @@
       "return-type": "json",
       "escape": true
     },
-"custom/launcher": {
-    "format": "🐧",                 // an icon (Font Awesome magnifying glass)
-    "tooltip": "App Launcher",
-    "on-click": "wofi --show drun", // command to run on click
-    "interval": 0                  // no need to refresh
-  }
+    "custom/launcher": {
+        "format": "🐧",                 // an icon (Font Awesome magnifying glass)
+        "tooltip": "App Launcher",
+        "on-click": "wofi --show drun", // command to run on click
+        "interval": 0                  // no need to refresh
+    },
+    "custom/recorder": {
+      "exec": "pgrep wf-recorder >/dev/null && echo REC",
+      "interval": 1
+    },
 }

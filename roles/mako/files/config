@@ -2,62 +2,56 @@ sort=-time
 layer=overlay
 #background-color=#E0F7FA
 #background-color=#95bfef
-background-color=#47748baa
+background-color=#47748bee
 #border-color=#4DD0E1
 #border-color=#95bfef
-border-color=#47748baa
-width=500
-height=500
+border-color=#47748b
+width=320
+height=700
 border-size=5
 border-radius=5
 icons=1
 max-icon-size=64
 default-timeout=5000
-ignore-timeout=1
+ignore-timeout=0
 font=monospace 14
 text-color=#000000
-anchor=top-center
+anchor=top-right
 
 [urgency=low]
-#border-color=#FFE082
-#border-color=#ffffd7
-border-color=#ffffff99
-#background-color=#FFF9C4
-#background-color=#ffffd7
-background-color=#eccca699
+background-color=#999999ee
+border-color=#999999
 
 [urgency=normal]
-#border-color=#4DD0E1
-#border-color=#95bfef
-border-color=#47748bcc
-#background-color=#E0F7FA
-#background-color=#95bfef
-background-color=#47748bcc
+border-color=#47748b
+background-color=#47748bee
 
 [urgency=high]
-#border-color=#B02F00
-border-color=#e95c6c99
-#background-color=#FFCDD2
-background-color=#e95c6c99
+border-color=#e95c6c
+background-color=#e95c6cee
 default-timeout=10000
 
 [app-name=wp-vol]
 layer=overlay
 history=0
-anchor=top-center
-# Group all volume notifications together
 group-by=app-name
-# Hide the group-index
+background-color=#000000
+border-color=#000000
+progress-color=#ffffff
+max-icon-size=20
 format=<b>%s</b>\n%b
 
-[app-name=Spotify]
-anchor=top-center
+[app-name=media-button]
+width=120
+text-alignment=center
+background-color=#999999ee
+border-color=#999999ee
+padding=0
+font=monospace 25
 
 [app-name=media-client]
-width=250
-background-color=#99999999
-border-color=#99999955
-
-[app-name=volume group-index=0]
-# Only show last notification
-invisible=0
+width=200
+text-alignment=center
+background-color=#999999ee
+border-color=#999999ee
+padding=0

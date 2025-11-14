@@ -2,8 +2,8 @@
 #
 
 function status() {
-   DEST=$1
-	 dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus'| grep "string" | awk -F\" '{print $2}'
+  DEST=$1
+  dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:'org.mpris.MediaPlayer2.Player' string:'PlaybackStatus' | grep "string" | awk -F\" '{print $2}'
 }
 
 function readable() {
@@ -11,18 +11,18 @@ function readable() {
 
   case $name in
 
-    spotify*)
-      echo Spotify
-      ;;
-    chronium*)
-      echo Chronium
-      ;;
-    brave*)
-      echo Brave
-      ;;
-    *)
-      echo "$name"
-      ;;
+  spotify*)
+    echo Spotify
+    ;;
+  chronium*)
+    echo Chronium
+    ;;
+  brave*)
+    echo Brave
+    ;;
+  *)
+    echo "$name"
+    ;;
   esac
 }
 
@@ -31,18 +31,18 @@ function icon() {
 
   case $name in
 
-    spotify*)
-      echo /usr/share/icons/Paper/512x512/apps/spotify.png
-      ;;
-    chronium*)
-      echo /usr/share/icons/Paper/512x512/apps/chromium.png
-      ;;
-    brave*)
-      echo /usr/share/icons/Paper/512x512/apps/brave.png
-      ;;
-    *)
-      echo "$name"
-      ;;
+  spotify*)
+    echo /usr/share/icons/Paper/512x512/apps/spotify.png
+    ;;
+  chronium*)
+    echo /usr/share/icons/Paper/512x512/apps/chromium.png
+    ;;
+  brave*)
+    echo /usr/share/icons/Paper/512x512/apps/brave.png
+    ;;
+  *)
+    echo "$name"
+    ;;
   esac
 }
 
@@ -54,77 +54,69 @@ function get_destinations() {
 #DEST='org.mpris.MediaPlayer2.firefox.instance8835'
 DESTINATIONS=$(get_destinations)
 
-if [ -z "$DESTINATIONS" ];
-then
-    echo "Cannot find a running media player"
-    exit 2
+if [ -z "$DESTINATIONS" ]; then
+  echo "Cannot find a running media player"
+  exit 2
 fi
 
 COMMAND=$1
 
 if [ -z "$COMMAND" ]; then
-    echo "Use: $0 <pause/next/prev/stop>"
-    exit 1
+  echo "Use: $0 <pause/next/prev/stop>"
+  exit 1
 fi
 
 COUNT=$(dbus-send --session --print-reply --reply-timeout=150 --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep MediaPlayer2 | awk -F\" '{print $2}' | wc -w)
 
-for DEST in $DESTINATIONS;
-do
+for DEST in $DESTINATIONS; do
   case $COMMAND in
-    'pause')
-      if [ "Playing" == "$(status "$DEST")" ]
-      then
-        COMMAND='stop'
-      fi
+  'pause')
+    if [ "Playing" == "$(status "$DEST")" ]; then
+      COMMAND='stop'
+    fi
     ;;
   esac
 done
 
-
-for DEST in $DESTINATIONS;
-do
+for DEST in $DESTINATIONS; do
   STAT=$(status "$DEST")
   case $COMMAND in
-    'pause')
-        dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-        sleep 0.1
+  'pause')
+    dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    sleep 0.1
 
-        if [ "$STAT" != "$(status "$DEST")" ];
-        then
-          notify-send -a 'media-client' -i "$(icon "$DEST")" "$(readable "$DEST")" "⏯️ $(status "$DEST")"
-        fi
-        if [ "$COUNT" -gt 1 ];
-        then
-          COMMAND='stop'
-        fi
+    if [ "$STAT" != "$(status "$DEST")" ]; then
+      notify-send -a 'media-client' -i "$(icon "$DEST")" "$(readable "$DEST")" "⏯️ $(status "$DEST")"
+    fi
+    if [ "$COUNT" -gt 1 ]; then
+      COMMAND='stop'
+    fi
     ;;
 
-    'next')
-        dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-        notify-send -a 'media-client' "⏭️"
+  'next')
+    dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    notify-send -a 'media-button' "⏭" -i "$(icon $DEST)"
     ;;
 
-    'prev')
-      dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-      notify-send -a 'media-client'  "⏮️"
+  'prev')
+    dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    notify-send -a 'media-button' "⏮" -i "$(icon $DEST)"
     ;;
 
-    'stop')
-      dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-      sleep 0.1
-      if [ "$STAT" != "$(status "$DEST")" ];
-      then
-        notify-send -a 'media-client' -i "$(icon "$DEST")" "$(readable "$DEST")" "⏯️ $(status "$DEST")"
-      fi
+  'stop')
+    dbus-send --print-reply --dest="$DEST" /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+    sleep 0.1
+    if [ "$STAT" != "$(status "$DEST")" ]; then
+      notify-send -a 'media-client' -i "$(icon "$DEST")" "$(readable "$DEST")" "⏯️ $(status "$DEST")"
+    fi
     ;;
-    'status')
+  'status')
 
-      echo "$(readable "$DEST") $(status "$DEST")"
+    echo "$(readable "$DEST") $(status "$DEST")"
     ;;
-    *)
-      echo "Use: $0 <pause/next/prev/stop>"
-      exit 2
+  *)
+    echo "Use: $0 <pause/next/prev/stop>"
+    exit 2
     ;;
   esac
 done
