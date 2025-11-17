@@ -113,10 +113,6 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 
     bindsym $mod+shift+i exec wofi-emoji
 
-    # Record screen
-    bindsym Ctrl+Alt+Shift+r exec wf-recorder  -f ~/Pictures/mov-$(date +"%Y-%m-%d--%H-%M-%S.mp4") -a
-    bindsym $mod+Shift+BackSpace exec killall -s SIGINT wf-recorder
-
     # Open display manager
     # set $dark GTK_THEME=Adwaita:dark
     # bindsym $mod+x exec $dark wdisplays
@@ -257,11 +253,6 @@ bindsym $mod+bracketleft move workspace to output left
 #
     bindsym $mod+Shift+r exec ~/.dotfiles/bin/record-screen.sh start
     bindsym $mod+Shift+s exec ~/.dotfiles/bin/record-screen.sh stop
-
-#
-# Record screen
-#
-#    bindsym $mod+Shift+Print exec wf-recorder -g "$(slurp)"
 
     bindsym $mod+n exec .dotfiles/bin/rename_workspace.sh
 #
