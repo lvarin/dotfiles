@@ -23,7 +23,7 @@ set $term foot
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu wofi
 #set $menu rofi -show drun -modi run -show-icons
-set $menu wofi --show drun,run -I
+set $menu wofi --show drun -I
 
 #
 gaps inner 10
@@ -31,8 +31,8 @@ gaps outer 5
 # Only enable gaps on a workspace when there is at least one container
 smart_gaps on
 smart_borders no_gaps
-default_border pixel 5
-for_window [class="^.*"] border pixel 5
+default_border pixel 7
+for_window [class="^.*"] border pixel 7
 #
 
 include /etc/sway/config-vars.d/*
@@ -82,7 +82,7 @@ exec swayidle -w \
 
 input * {
     xkb_layout us,fi
-    xkb_options grp:win_space_toggle
+    xkb_options grp:menu_toggle
 }
 
 #
@@ -108,8 +108,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
     bindsym $mod+shift+q kill
 
     # Start your launcher
-    bindsym $mod+slash exec $menu
-    bindsym $mod+shift+slash exec wofi --show run
+    set $PATH $HOME/.local/bin:$PATH
+    bindsym $mod+space exec env PATH=$PATH $menu
 
     bindsym $mod+shift+i exec wofi-emoji
 
@@ -317,6 +317,6 @@ bar swaybar_command waybar
 include /etc/sway/config.d/*
 
 
-client.focused              #4477ff #50505090 #ffffff #4477ff   #4477ff
-client.focused_inactive     #555555 #32323290 #ffffff #4477ff   #555555
-client.unfocused            #555555 #00000090 #ffffff #4477ff   #555555
+client.focused              #4477ff #4477fff0 #ffffff #4477ff   #4477ff
+client.focused_inactive     #555555 #4477fff0 #ffffff #4477ff   #555555
+client.unfocused            #555555 #000000f0 #ffffff #4477ff   #555555
