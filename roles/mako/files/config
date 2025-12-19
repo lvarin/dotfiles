@@ -34,6 +34,7 @@ default-timeout=10000
 [app-name=wp-vol]
 layer=overlay
 history=0
+text-color=#571314
 group-by=app-name
 background-color=#000000
 border-color=#000000
