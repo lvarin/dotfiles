@@ -44,12 +44,11 @@ if [[ "start" == "$ACTION" ]]; then
     region=$(slurp)
     [ -z "$region" ] && exit 0
 
-    notify-send "📹 Recording region..."
     wf-recorder -g "$region" -a -f "$outfile"
   else
     notify-send "Recording aborted"
   fi
 
 elif [[ "stop" == "$ACTION" ]]; then
-  pkill -SIGINT wf-recorder && notify-send "🟥 Recording stopped"
+  pkill -SIGINT wf-recorder && notify-send "🟥 Recording stopped. Stored at $outfile"
 fi
