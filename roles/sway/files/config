@@ -41,7 +41,7 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/Wallpaper.jpg fill
+output * bg ~/Pictures/Wallpaper.jpg fit #ffffff
 #
 # Example configuration:
 #
@@ -95,6 +95,8 @@ exec --no-startup-id keepassxc
 exec --no-startup-id /app/bin/nextcloud
 exec --no-startup-id /var/lib/flatpak/exports/bin//us.zoom.Zoom
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
+exec_always wl-paste --type text --watch clipman store
 ### Key bindings
 #
 # Basics:
@@ -111,7 +113,10 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
     # Start your launcher
     set $PATH $HOME/.local/bin:$PATH
     bindsym $mod+space exec env PATH=$PATH $menu
-
+#
+# Clipboard
+#
+    bindsym $mod+ctrl+space exec clipman pick -t wofi
     bindsym $mod+shift+i exec wofi-emoji
 
     # Open display manager
@@ -258,6 +263,7 @@ bindsym $mod+Next move workspace to output down
 # Screenshot
 #
     bindsym $mod+Print exec grimshot save area
+    bindsym $mod+alt+tab exec grimshot save area
    bindsym XF86Search exec grimshot save area
 #
 # Record screen

@@ -29,6 +29,7 @@ window#waybar.hidden {
 #custom-media,
 #custom-layout,
 #custom-power,
+#custom-timer,
 #tray,
 #custom-launcher,
 #mode,
@@ -128,6 +129,16 @@ window#waybar.hidden {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+.modules-center {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: black;
+}
+
 
 .modules-right {
   background-color: black;
