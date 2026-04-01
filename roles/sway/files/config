@@ -41,7 +41,7 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/Pictures/Wallpaper.jpg fit #ffffff
+output * bg ~/Pictures/Wallpaper.jpg fit #555555
 #
 # Example configuration:
 #
@@ -343,6 +343,6 @@ include /etc/sway/config.d/*
 client.focused           #4477ff #4477fff0 #ffffff #4477ff   #4477ff
 #client.focused_inactive #555555 #4477fff0 #ffffff #4477ff   #555555
 #client.unfocused        #555555 #000000f0 #ffffff #4477ff   #555555
-client.unfocused         #00000000 #ffffff50 #100000f0 #00000000 #00000000
-client.focused_inactive  #00000000 #4477ff80 #fffffff0 #00000000 #00000000
+client.unfocused         #00000000 #ffffff50 #100000f0 #00000000 #00000050
+client.focused_inactive  #00000000 #4477ff80 #fffffff0 #00000000 #00000050
 #client.urgent           #00000000 #00000000 #00000000 #00000000 #00000000
