@@ -1,28 +1,28 @@
 # My dotfiles
 
-Configure linux workstation using Ansible.
+Configure linux workstation using Stow.
 
 ## Base tools
- - wget
- - curl
+ - Stow
 
-### System
+## Quick start
 
-- git
-- tmux
-- vim
-- zsh
-
-## Bootstrap
-
-You may use the script `./bin/dot-bootstrap` to run ansible. If no parameter is passed it runs all the roles in the localhost. It can also be run for a remote host by doing:
-
-```
-$ ./bin/dot-bootsrap 'h1.example.com,'
+```sh
+git clone git@github.com:lvarin/dotfiles.git ~/.dotfiles
+cd .dotfiles
+./install.sh
 ```
 
-And to run only one of the roles, like 	`vim` for example:
+This will clone the repo, install the packages in the packages folder, and finally create siymlinks between this repo and the places that the utilities are expecting the config files to be. For example:
 
+```sh
+lrwxrwxrwx - alvarog 10 Jul 15:49  .config/fish -> ../.dotfiles/fish/dot-config/fish
 ```
-$ ./bin/dot-bootstrap 'h1.example.com,' vim
+
+The process will fail if the file already exist:
+
+```sh
+  * cannot stow .dotfiles/waybar/dot-config/waybar/config over existing target .config/waybar/config since neither a link nor a directory and --adopt not specified
 ```
+
+The recomendation is to check the diff (`diff .config/waybar/config .dotfiles/waybar/dot-config/waybar/config`), if different, move the current file to the repo (`mv .config/waybar/config .dotfiles/waybar/dot-config/waybar/config`) so the current config is stored on the repo, and try again.
