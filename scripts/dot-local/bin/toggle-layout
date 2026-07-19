@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+current=$(swaymsg -t get_inputs -r | jq -r '
+  .[] |
+  select(.type=="keyboard") |
+  .xkb_active_layout_name
+' | head -n1)
+
+case "$current" in
+    Finnish)
+        swaymsg 'input type:keyboard xkb_layout us'
+        ;;
+    *)
+        swaymsg 'input type:keyboard xkb_layout fi'
+        ;;
+esac
