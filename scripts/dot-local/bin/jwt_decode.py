@@ -21,10 +21,11 @@ def jwt_decode(token: str):
         print(f"Error decoding token: {e}", file=sys.stderr)
         sys.exit(1)
 
-    print("HEADER:")
+    print("{\"HEADER\":")
     print(json.dumps(header_decoded, indent=2))
-    print("\nPAYLOAD:")
+    print(",\"PAYLOAD\":")
     print(json.dumps(payload_decoded, indent=2))
+    print("}")
 
 # Read token from stdin (strip whitespace/newlines)
 raw = sys.stdin.read().strip()
