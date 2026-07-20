@@ -5,7 +5,7 @@ return {
   config = function()
       require("bufferline").setup({})
 
-     local keymap = vim.keymap
+      local keymap = vim.keymap
 
       keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { silent = true })
       keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { silent = true })

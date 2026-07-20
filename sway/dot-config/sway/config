@@ -8,6 +8,8 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -94,7 +96,7 @@ exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id keepassxc
 exec --no-startup-id /app/bin/nextcloud
-exec --no-startup-id /var/lib/flatpak/exports/bin//us.zoom.Zoom
+#exec --no-startup-id /var/lib/flatpak/exports/bin//us.zoom.Zoom
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 exec_always wl-paste --type text --watch clipman store
@@ -141,6 +143,7 @@ exec_always wl-paste --type text --watch clipman store
     for_window [app_id="nm-openconnect-auth-dialog"] floating enable
 
     for_window [class="zoom"] move to workspace 7
+    for_window [class="zoom"] floating enable
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -276,9 +279,11 @@ bindsym $mod+Next move workspace to output down
 #
 # Audio
 #
-    bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume.sh +5%
-    bindsym XF86AudioLowerVolume exec ~/.local/bin/volume.sh -5%
-    bindsym XF86AudioMute exec ~/.local/bin/volume.sh toggle
+    bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
+    bindsym Shift+XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +1%
+    bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
+    bindsym Shift+XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -1%
+    bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
     bindsym XF86AudioPlay exec ~/.dotfiles/bin/media-client pause
     bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
     bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
@@ -344,6 +349,6 @@ include /etc/sway/config.d/*
 client.focused           #4477ff #4477fff0 #ffffff #4477ff   #4477ff
 #client.focused_inactive #555555 #4477fff0 #ffffff #4477ff   #555555
 #client.unfocused        #555555 #000000f0 #ffffff #4477ff   #555555
-client.unfocused         #00000000 #ffffff50 #100000f0 #00000000 #00000050
-client.focused_inactive  #00000000 #4477ff80 #fffffff0 #00000000 #00000050
+client.unfocused         #00000000 #fffffff0 #100000f0 #00000000 #00000050
+client.focused_inactive  #00000000 #4477fff0 #fffffff0 #00000000 #00000050
 #client.urgent           #00000000 #00000000 #00000000 #00000000 #00000000
