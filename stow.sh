@@ -5,8 +5,8 @@ if [ -z "$PACKAGE" ];
 then
 	PACKAGE=(
 		#git
-		#zsh
-		fish
+		zsh
+		#fish
 		#tmux
 		nvim
 		sway
@@ -14,6 +14,7 @@ then
 		mako
 		wofi
 		foot
+                keepassxc
 		scripts
 	)
 fi
