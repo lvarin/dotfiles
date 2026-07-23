@@ -126,7 +126,7 @@ exec_always wl-paste --type text --watch clipman store
     # set $dark GTK_THEME=Adwaita:dark
     # bindsym $mod+x exec $dark wdisplays
     bindsym $mod+XF86Display exec wdisplays
-    bindsym $mod+Shift+d exec ~/.dotfiles/bin/screen-move.sh
+    bindsym $mod+Shift+d exec ~/.local/bin/screen-move.sh
 
     # Logout, lock, suspend, hibernate, poweroff, revboot
     bindsym $mod+Shift+p exec wlogout
@@ -272,22 +272,22 @@ bindsym $mod+Next move workspace to output down
 #
 # Record screen
 #
-    bindsym $mod+Shift+r exec ~/.dotfiles/bin/record-screen.sh start
-    bindsym $mod+Shift+s exec ~/.dotfiles/bin/record-screen.sh stop
+    bindsym $mod+Shift+r exec ~/.local/bin/record-screen.sh start
+    bindsym $mod+Shift+s exec ~/.local/bin/record-screen.sh stop
 
     bindsym $mod+n exec .local/bin/rename_workspace.sh
 #
 # Audio
 #
-    bindsym XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +5%
-    bindsym Shift+XF86AudioRaiseVolume exec ~/.dotfiles/bin/volume.sh +1%
-    bindsym XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -5%
-    bindsym Shift+XF86AudioLowerVolume exec ~/.dotfiles/bin/volume.sh -1%
-    bindsym XF86AudioMute exec ~/.dotfiles/bin/volume.sh toggle
-    bindsym XF86AudioPlay exec ~/.dotfiles/bin/media-client pause
-    bindsym XF86AudioPrev exec ~/.dotfiles/bin/media-client prev
-    bindsym XF86AudioNext exec ~/.dotfiles/bin/media-client next
-    bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
+    bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume.sh +5%
+    bindsym Shift+XF86AudioRaiseVolume exec ~/.local/bin/volume.sh +1%
+    bindsym XF86AudioLowerVolume exec ~/.local/bin/volume.sh -5%
+    bindsym Shift+XF86AudioLowerVolume exec ~/.local/bin/volume.sh -1%
+    bindsym XF86AudioMute exec ~/.local/bin/volume.sh toggle
+    bindsym XF86AudioPlay exec ~/.local/bin/media-client pause
+    bindsym XF86AudioPrev exec ~/.local/bin/media-client prev
+    bindsym XF86AudioNext exec ~/.local/bin/media-client next
+    bindsym XF86AudioStop exec ~/.local/bin/media-client stop
 
 #
 
