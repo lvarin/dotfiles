@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+show_clean=0
+
+while getopts "a" opt; do
+    case "$opt" in
+        a) show_clean=1 ;;
+    esac
+done
+
+SRC_DIR="$HOME/src"
+
+for repo in "$SRC_DIR"/*; do
+    [ -d "$repo/.git" ] || continue
+
+    cd "$repo" || continue
+
+    output=""
+    dirty=0
+
+    # Untracked files
+    if [ -n "$(git status --porcelain --untracked-files=all | grep '^??')" ]; then
+        output+="  ⚠ Untracked files:\n"
+        output+="$(git status --porcelain --untracked-files=all | grep '^??' | sed 's/^/    /')\n"
+        dirty=1
+    fi
+
+    # Modified/staged files
+    changes=$(git status --porcelain | grep -v '^??')
+    if [ -n "$changes" ]; then
+        output+="  ⚠ Uncommitted changes:\n"
+        output+="$(echo "$changes" | sed 's/^/    /')\n"
+        dirty=1
+    fi
+
+    # Commits not pushed
+    if git rev-parse --abbrev-ref @{upstream} >/dev/null 2>&1; then
+        ahead=$(git rev-list --count @{upstream}..HEAD)
+        if [ "$ahead" -gt 0 ]; then
+            output+="  ⚠ $ahead commit(s) not pushed\n"
+            dirty=1
+        fi
+    else
+        output+="  ? No upstream branch configured\n"
+        dirty=1
+    fi
+
+    if [ "$dirty" -eq 0 ]; then
+        [ "$show_clean" -eq 1 ] || continue
+        output+="  ✓ Clean\n"
+    fi
+
+    origin_url=$(git remote get-url origin 2>/dev/null || echo "(no origin)")
+    echo "==> $(basename "$repo")  [$origin_url]"
+    printf "%b" "$output"
+    echo
+done
