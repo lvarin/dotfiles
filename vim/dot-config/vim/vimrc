@@ -1,11 +1,27 @@
+if &diff
+     syntaxt off
+endif
+
 set number
+set cursorline
+set showmatch
+set wildmenu
+set hidden
+set scrolloff=5
+set sidescrolloff=5
 set clipboard=unnamedplus
 set bg=dark
 
+syntax on
 " python
-set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-
+set tabstop=4 expandtab shiftwidth=4 softtabstop=4 expandtab
+set autoindent
+set smartindent
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
-map bgl :set bg=light
+set mouse=a
