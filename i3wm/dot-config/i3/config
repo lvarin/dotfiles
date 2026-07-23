@@ -12,7 +12,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+backslash exec gnome-terminal
+bindsym $mod+backslash exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -261,7 +261,7 @@ for_window [class="Gvim"] border pixel 5
 #
 bindsym $mod+n exec ~/.local/bin/rename_workspace.sh
 bindsym --release $mod+Print exec gnome-screenshot -a
-bindsym $mod+x exec /usr/bin/arandr 
+bindsym $mod+x exec /usr/bin/arandr
 bindsym XF86Display exec /usr/bin/arandr
 #
 # Sound
@@ -292,7 +292,9 @@ bindsym XF86AudioStop exec ~/.dotfiles/bin/media-client stop
 #
 # Move workspace to other screen
 bindsym $mod+bracketright move workspace to output right
+bindsym $mod+dead_diaeresis move workspace to output right
 bindsym $mod+bracketleft move workspace to output left
+bindsym $mod+aring move workspace to output left
 bindsym $mod+Next move workspace to output down
 bindsym $mod+Prior move workspace to output up
 
