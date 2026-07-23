@@ -1,0 +1,11 @@
+stow
+sway
+waybar
+swaylock
+pavucontrol
+fonts-roboto
+fonts-font-awesome
+kitty
+git
+keepassxc
+zsh
