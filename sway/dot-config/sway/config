@@ -350,5 +350,5 @@ client.focused           #4477ff #4477fff0 #ffffff #4477ff   #4477ff
 #client.focused_inactive #555555 #4477fff0 #ffffff #4477ff   #555555
 #client.unfocused        #555555 #000000f0 #ffffff #4477ff   #555555
 client.unfocused         #00000000 #fffffff0 #100000f0 #00000000 #00000050
-client.focused_inactive  #00000000 #4477fff0 #fffffff0 #00000000 #00000050
+client.focused_inactive  #00000000 #3a5a78f0 #ffffffc0 #00000000 #00000050
 #client.urgent           #00000000 #00000000 #00000000 #00000000 #00000000
