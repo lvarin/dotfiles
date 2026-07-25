@@ -25,10 +25,17 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.list = true
 vim.opt.listchars = {
-  trail = "·", -- shows trailing spaces
+  trail = "•", -- shows trailing spaces
   tab = "» ", -- optional: tabs
   nbsp = "␣", -- optional: non-breaking space
 }
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "Whitespace", { fg = "#b8ff00" })
+  end,
+})
 
 vim.keymap.set("n", "<leader>t", function()
   vim.cmd("split | terminal")
