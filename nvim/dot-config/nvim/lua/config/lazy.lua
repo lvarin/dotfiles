@@ -38,8 +38,18 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.keymap.set("n", "<leader>t", function()
-  vim.cmd("split | terminal")
-end, { desc = "Open terminal" })
+  local dir = vim.fn.expand("%:p:h")
+  if dir == "" then
+    dir = vim.fn.getcwd()
+  end
+
+  vim.fn.jobstart({
+    "kitty",
+    "--directory=" .. dir,
+  }, {
+    detach = true,
+  })
+end, { desc = "Open Kitty here" })
 
 -- Setup lazy.nvim
 require("lazy").setup({
