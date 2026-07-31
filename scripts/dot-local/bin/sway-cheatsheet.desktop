@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Sway Cheatsheet
-Comment=Show Sway keybinding cheatsheet
-Exec=/home/galvaro/.local/bin/sway-cheatsheet.sh
-Type=Application
-Terminal=false
-Keywords=sway;keybindings;cheatsheet;shortcuts;
-Icon=help-keyboard-shortcuts
