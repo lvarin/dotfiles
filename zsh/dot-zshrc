@@ -23,9 +23,20 @@ zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 
+# fzf: install binary + key bindings (Ctrl+R history, Ctrl+T file, Alt+C cd)
+zinit ice from"gh-r" as"program"
+zinit light junegunn/fzf
+zinit snippet "https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh"
+
+# Use emacs-style line editing (Ctrl+A/E, Ctrl+R, etc.)
+bindkey -e
+
 # History substring search keybindings
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 # Edit current command in $EDITOR
 autoload -U edit-command-line
