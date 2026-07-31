@@ -6,7 +6,7 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 11
 
 [window]
-opacity = 0.95
+opacity = 0.9
 
 # Gruvbox Dark colors
 [colors.primary]
