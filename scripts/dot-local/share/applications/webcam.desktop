@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Webcam
+Exec=/home/galvaro/.local/bin/webcam
+Type=Application
+Terminal=false

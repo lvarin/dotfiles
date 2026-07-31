@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Set Wallpaper
+Exec=/home/galvaro/.local/bin/set-wall.sh
+Type=Application
+Terminal=false
