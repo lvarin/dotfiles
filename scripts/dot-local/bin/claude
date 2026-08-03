@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+URL=ssh://git@gitlab.ci.csc.fi:10022/soda/csc-claude-code-env.git
+
+if [ ! -d $HOME/src/csc-claude-code-env ];
+then
+    cd $HOME/src/
+    git clone $HOME/src/csc-claude-code-env
+    cd -
+fi
+
+$HOME/src/csc-claude-code-env/sandbox.sh claude $@
