@@ -14,7 +14,7 @@ function readable() {
   spotify*)
     echo Spotify
     ;;
-  chronium*)
+  chromium*)
     echo Chronium
     ;;
   brave*)
@@ -34,7 +34,7 @@ function icon() {
   spotify*)
     echo /usr/share/icons/Paper/512x512/apps/spotify.png
     ;;
-  chronium*)
+  chromium*)
     echo /usr/share/icons/Paper/512x512/apps/chromium.png
     ;;
   brave*)
