@@ -35,7 +35,6 @@ gaps inner 5
 #smart_gaps on
 smart_borders no_gaps
 default_border pixel 5
-for_window [class="^.*"] border pixel 5
 #
 
 include /etc/sway/config-vars.d/*
@@ -63,8 +62,8 @@ output eDP-1 position 760,1440
 # Example configuration:
 #
 exec swayidle -w \
-        timeout 290 'notify-send "Goint to sleep in 10 seconds..." -u critical' \
-        timeout 295 'notify-send "Goint to sleep in 5 seconds..." -u critical' \
+        timeout 290 'notify-send "Going to sleep in 10 seconds..." -u critical' \
+        timeout 295 'notify-send "Going to sleep in 5 seconds..." -u critical' \
         timeout 300 'swaylock -f -c 000000' \
         before-sleep 'swaylock -f -c 000000'
 #
@@ -278,7 +277,7 @@ bindsym $mod+Next move workspace to output down
     bindsym $mod+Shift+r exec ~/.local/bin/record-screen.sh start
     bindsym $mod+Shift+s exec ~/.local/bin/record-screen.sh stop
 
-    bindsym $mod+n exec .local/bin/rename_workspace.sh
+    bindsym $mod+n exec ~/.local/bin/rename_workspace.sh
 #
 # Audio
 #

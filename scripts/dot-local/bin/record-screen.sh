@@ -3,6 +3,7 @@
 
 ACTION=$1
 ACTION=${ACTION,,}
+STATE_FILE="/tmp/wf-recorder-outfile"
 
 if [[ -z "$ACTION" ]]; then
   echo "Use: $0 <start/stop>"
@@ -21,6 +22,7 @@ if [[ "start" == "$ACTION" ]]; then
     tr -d '|')
 
   outfile="$HOME/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S").mp4"
+  echo "$outfile" > "$STATE_FILE"
 
   if [[ "$mode" == "Full Monitor" ]]; then
     # Select monitor
@@ -50,5 +52,6 @@ if [[ "start" == "$ACTION" ]]; then
   fi
 
 elif [[ "stop" == "$ACTION" ]]; then
+  outfile=$(cat "$STATE_FILE" 2>/dev/null || echo "unknown location")
   pkill -SIGINT wf-recorder && notify-send "🟥 Recording stopped. Stored at $outfile"
 fi

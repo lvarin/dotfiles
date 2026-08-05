@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 LAPTOP="eDP-1"
-EXTERNAL="DP-1"
+EXTERNAL=$(swaymsg -t get_outputs | jq -r \
+  '.[] | select(.active and .name != "eDP-1") | .name' | head -n1)
+
+if [ -z "$EXTERNAL" ]; then
+  notify-send "No external monitor found"
+  exit 1
+fi
 
 # Get current position of laptop output
 POS=$(swaymsg -t get_outputs | jq -r \
