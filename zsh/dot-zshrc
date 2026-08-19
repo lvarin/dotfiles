@@ -54,6 +54,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 
 alias ls='ls --color=always'
+alias hl='rg --passthru'
 
 # History
 HISTFILE=~/.zsh_history
