@@ -28,7 +28,7 @@ clear)
     if ((end > 0)); then
       echo "0" >$STATE
       notify-send "⏱ Timer finished" "Your timer has ended"
-      .dotfiles/bin/alert.sh
+      .local/bin/alert.sh
     fi
     echo "⏱️"
   else
