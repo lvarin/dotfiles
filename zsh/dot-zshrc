@@ -55,6 +55,7 @@ export EDITOR=nvim
 
 alias ls='ls --color=always'
 alias hl='rg --passthru'
+alias ls='eza --icons=always'
 
 # History
 HISTFILE=~/.zsh_history
