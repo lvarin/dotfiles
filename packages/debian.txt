@@ -1,5 +1,7 @@
 stow
+build-essential
 sway
+swayidle
 waybar
 swaylock
 pavucontrol
@@ -9,3 +11,9 @@ kitty
 git
 keepassxc
 zsh
+network-manager-applet
+mako-notifier
+wlogout
+wofi
+wdisplays
+grimshot
