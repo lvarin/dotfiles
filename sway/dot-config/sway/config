@@ -97,8 +97,8 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id keepassxc
-exec --no-startup-id /app/bin/nextcloud
-#exec --no-startup-id /var/lib/flatpak/exports/bin//us.zoom.Zoom
+exec --no-startup-id nextcloud
+exec --no-startup-id zoom
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 exec_always wl-paste --type text --watch clipman store
