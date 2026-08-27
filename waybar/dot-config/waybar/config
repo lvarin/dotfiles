@@ -27,7 +27,7 @@
       "exec": "~/.local/bin/waybar-timer.sh",
       "interval": 1,
       "on-click": "~/.local/bin/waybar-timer.sh set",
-      "on-click-right": "~/.local/bin/waybar-timer.sh clear"
+      "on-click-right": "~/.local/bin/waybar-timer.sh pause"
     },
     "sway/language": {
     "format": "{flag}{shortDescription} {variant}",

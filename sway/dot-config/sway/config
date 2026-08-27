@@ -133,6 +133,10 @@ exec_always wl-paste --type text --watch clipman store
     # Logout, lock, suspend, hibernate, poweroff, revboot
     bindsym $mod+Shift+p exec wlogout
 
+    bindsym $mod+p exec ~/.local/bin/kp-type
+
+
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.

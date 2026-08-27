@@ -6,10 +6,8 @@
 
 #window {
   background: rgba(238, 232, 213, 0.9);
-  margin: auto;
   padding: 10px;
   border-radius: 5px;
-  #border: 5px solid #fdf6e3;
 }
 
 #input {

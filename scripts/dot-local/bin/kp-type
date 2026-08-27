@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+prefix="csc"
+DB="$HOME/Nextcloud/Home/keepass/Database.kdbx"
+
+MPASS="$(
+	echo | wofi \
+		--dmenu \
+		--prompt "Password: " \
+		--lines 1 \
+		-P
+	)" || exit 0
+
+# Make sure the database exists.
+if [[ ! -f "$DB" ]]; then
+    notify-send "KeePass" "Database not found: $DB"
+    exit 1
+fi
+
+# Get all entries recursively.
+# 'search' returns matching entry paths; an empty search term matches all entries.
+entries="$(
+    echo "$MPASS" | keepassxc-cli ls "$DB" "$prefix/" 2>/dev/null
+)" || {
+    notify-send "KeePass" "Could not read database. Password is wrong"
+    exit 1
+}
+
+if [[ -z "$entries" ]]; then
+    notify-send "KeePass" "No entries found"
+    exit 0
+fi
+
+# Wofi selection.
+selected="$(
+    printf '%s\n' "${entries[@]}" |
+        wofi \
+            --dmenu \
+            --prompt "KeePass: " \
+            --width 700 \
+            --height 500 \
+            --insensitive
+)" || exit 0
+
+[[ -n "$selected" ]] || exit 0
+
+# Retrieve the password.
+#
+# -a Password explicitly asks for the protected Password attribute.
+# KeePassXC then prompts for the database password on its controlling
+# terminal if necessary.
+password="$(
+    echo "$MPASS" | keepassxc-cli show \
+        -q \
+        -a Password \
+        "$DB" \
+        "$prefix/$selected"
+)"
+
+# Don't do anything if the entry has no password.
+if [[ -z "$password" ]]; then
+    notify-send "KeePass" "Selected entry has an empty password"
+    exit 0
+fi
+
+sleep 0.2
+
+# Type password into the currently focused Wayland application.
+echo -n "$password" | wtype -
+
+# Remove password from the shell variable as soon as possible.
+unset password
