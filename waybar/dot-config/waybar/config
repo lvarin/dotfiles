@@ -3,13 +3,8 @@
     "spacing": 2,
 
     "modules-left": ["custom/launcher", "sway/workspaces"],
-    "modules-center": ["sway/mode","custom/timer"],
-    "modules-right": ["custom/recorder", "custom/layout", "idle_inhibitor", "tray", "pulseaudio", "battery", "clock", "custom/power"],
-    "custom/layout": {
-      "exec": "swaymsg -t get_inputs | jq -r '.[] | select(.type==\"keyboard\") | .xkb_active_layout_name' | head -n1 | awk '{ if ($0 ~ /English/) print \"🇬🇧\"; else if ($0 ~ /Finnish/) print \"🇫🇮\"; else print $0 }'",
-      "interval": 1,
-      "on-click": "~/.local/bin/toggle-layout"
-    },
+    "modules-center": ["clock"],
+    "modules-right": ["custom/recorder", "sway/language", "idle_inhibitor", "sway/mode", "custom/timer","tray", "pulseaudio", "battery", "custom/power"],
     "sway/workspaces": {
 	    "disable-scroll": true,
 	    "format": "{icon} {name}",
@@ -30,7 +25,8 @@
       "on-click-right": "~/.local/bin/waybar-timer.sh pause"
     },
     "sway/language": {
-    "format": "{flag}{shortDescription} {variant}",
+      "format": "{flag}",
+      "on-click": "~/.local/bin/toggle-layout"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -46,8 +42,7 @@
     "clock": {
         // "format": "{: %H:%M}",
         "format": "{:%b %d %a  %H:%M}",
-        "tooltip-format": "{:%a - %Y %b %d - w%W  %H:%M:%S %z}",
-        "on-click": "gsimplecal",
+        "tooltip-format": "{:%a - %Y %b %d - w%W  %H:%M:%S %z}"
     },
     "battery": {
         "states": {
@@ -86,7 +81,6 @@
     },
     "custom/power": {
       "format": "",
-      // "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'suspend' 'systemctl suspend' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33",
       "on-click": "wlogout",
       "return-type": "json",
       "escape": true

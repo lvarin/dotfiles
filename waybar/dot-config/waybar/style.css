@@ -4,7 +4,6 @@
     font-size: 13px;
     border-radius: 5px;
 }
-
 window#waybar {
     background-color: rgba(43, 48, 59, 0);
     color: #ffffff;
@@ -21,7 +20,6 @@ window#waybar.hidden {
 }
 
 
-#clock,
 #battery,
 #cpu,
 #memory,
@@ -49,11 +47,19 @@ window#waybar.hidden {
     color: white;
 }
 
-
-#language {
-/*    snip  */
-    min-width: 30px;
+#clock {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
+
+
 
 #workspaces {
     padding-left: 0px;
@@ -140,7 +146,7 @@ window#waybar.hidden {
   margin-bottom: 5px;
   padding-top: 0px;
   padding-bottom: 0px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,1);
 }
 
 
@@ -239,7 +245,7 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
+    background: transparent;
     color: #740864;
     padding: 0 5px;
     margin: 0 5px;
