@@ -1,0 +1,3 @@
+podman run -it --rm \
+  -e TERM=xterm-256color \
+  cmatrix -ck

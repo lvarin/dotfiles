@@ -12,7 +12,7 @@
     },
     "sway/workspaces": {
 	    "disable-scroll": true,
-	    "format": "{name}: {icon}",
+	    "format": "{icon} {name}",
       "format-icons": {
         "urgent": "",
         "focused": "",
