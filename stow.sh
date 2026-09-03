@@ -14,8 +14,9 @@ then
 		mako
 		wofi
 		foot
-                keepassxc
+        keepassxc
 		scripts
+        environment
 	)
 fi
 
