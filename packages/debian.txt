@@ -17,3 +17,4 @@ wlogout
 wofi
 wdisplays
 grimshot
+wf-recorder

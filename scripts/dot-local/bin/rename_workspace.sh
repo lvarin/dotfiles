@@ -7,7 +7,7 @@ MSG='i3-msg'
 MSG='swaymsg'
 
 OLD=$($MSG -t 'get_workspaces' | $MSG -t 'get_workspaces' | jq '.[] | select(.focused == true) | .name ' -r)
-NEW=$(yad --text="Enter new name:" --entry --title="Rename workspace $OLD" --entry-text="$OLD")
+NEW=$(echo "$OLD" | wofi --dmenu --prompt="Rename workspace $OLD to:")
 
 echo "rename workspace \"$OLD\" to \"$NEW\""
 $MSG "rename workspace \"$OLD\" to \"$NEW\""

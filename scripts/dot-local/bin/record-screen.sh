@@ -11,15 +11,8 @@ fi
 
 if [[ "start" == "$ACTION" ]]; then
   # Pick mode: full screen or region
-  mode=$(yad --list \
-    --title="Screen Recording" \
-    --button=gtk-ok:0 \
-    --button=gtk-cancel:1 \
-    --column="Select Mode" \
-    --height=200 --width=300 \
-    "Full Monitor" \
-    "Select Region" |
-    tr -d '|')
+  mode=$(printf "Full Monitor\nSelect Region\n" |
+    wofi --dmenu --prompt="Screen Recording")
 
   outfile="$HOME/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S").mp4"
   echo "$outfile" > "$STATE_FILE"
@@ -27,13 +20,7 @@ if [[ "start" == "$ACTION" ]]; then
   if [[ "$mode" == "Full Monitor" ]]; then
     # Select monitor
     monitor=$(swaymsg -t get_outputs | jq -r '.[].name' |
-      yad --list \
-        --title="Select Monitor" \
-        --button=gtk-ok:0 \
-        --button=gtk-cancel:1 \
-        --column="Monitor" \
-        --height=200 --width=300 |
-      tr -d '|')
+      wofi --dmenu --prompt="Select Monitor")
 
     [ -z "$monitor" ] && exit 0
 
