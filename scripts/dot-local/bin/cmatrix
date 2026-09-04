@@ -1,3 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! podman image exists cmatrix; then
+  tmp_context="$(mktemp -d)"
+  trap 'rm -rf "$tmp_context"' EXIT
+
+  cat > "$tmp_context/Dockerfile" <<'EOF'
+FROM alpine:latest AS builder
+
+RUN apk add --no-cache \
+    git \
+    build-base \
+    autoconf \
+    automake \
+    libtool \
+    ncurses-dev
+
+RUN git clone --depth 1 https://github.com/abishekvashok/cmatrix.git /src \
+    && cd /src \
+    && autoreconf -i \
+    && ./configure --without-fonts \
+    && make -j"$(nproc)" \
+    && make install
+
+ENTRYPOINT ["cmatrix"]
+EOF
+
+  podman build -t cmatrix "$tmp_context"
+fi
+
 podman run -it --rm \
   -e TERM=xterm-256color \
   cmatrix -ck
