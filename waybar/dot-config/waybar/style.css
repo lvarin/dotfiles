@@ -21,14 +21,7 @@ window#waybar.hidden {
 
 
 #battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
 #pulseaudio,
-#custom-media,
 #custom-layout,
 #custom-power,
 #custom-timer,
@@ -55,8 +48,7 @@ window#waybar.hidden {
     padding-left: 5px;
     padding-right: 5px;
     color: white;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
 }
 
 
@@ -173,7 +165,7 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
+    background-color: black;
 }
 
 @keyframes blink {
@@ -215,12 +207,12 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: black;
 }
 
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: orange;
 }
 
 #pulseaudio.muted {

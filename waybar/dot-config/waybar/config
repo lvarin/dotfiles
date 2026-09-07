@@ -2,9 +2,14 @@
     "height": 10,
     "spacing": 2,
 
-    "modules-left": ["custom/launcher", "sway/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/recorder", "sway/language", "idle_inhibitor", "sway/mode", "custom/timer","tray", "pulseaudio", "battery", "custom/power"],
+    "modules-left": ["custom/launcher","sway/workspaces"],
+    "modules-center": [],
+    "modules-right": ["custom/recorder", "group/expandable-tray", "sway/mode", "network", "pulseaudio", "battery", "clock", "custom/power"],
+    "custom/launcher": {
+        "format": "🐧",
+        "on-click": "wofi --show drun",
+        "tooltip": "App Launcher"
+    },
     "sway/workspaces": {
 	    "disable-scroll": true,
 	    "format": "{icon} {name}",
@@ -15,6 +20,29 @@
         "visible": "⦾"
 	    }
     },
+
+    // Define the expandable tray group
+    "group/expandable-tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "click-to-reveal": true // Set to false if you prefer expanding on mouse hover
+        },
+        "modules": [
+            "custom/arrow-next", // The first module acts as the toggle button
+            "sway/language",
+            "idle_inhibitor",
+            "tray",               // Hidden inside the drawer
+            "custom/timer"
+        ]
+    },
+
+    // Define the toggle button appearance
+    "custom/arrow-next": {
+        "format": "  ", // Unicode arrow icon (e.g., FontAwesome, Nerd Fonts)
+        "tooltip": false
+    },
+
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -40,9 +68,36 @@
         "spacing": 7
     },
     "clock": {
-        // "format": "{: %H:%M}",
-        "format": "{:%b %d %a  %H:%M}",
-        "tooltip-format": "{:%a - %Y %b %d - w%W  %H:%M:%S %z}"
+        "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "weeks-pos": "right",
+        "on-scroll": 1,
+        "format": {
+            "months": "<span color='#ffffff'><b>{}</b></span>",
+            "weekdays": "<span color='#ffffff'><b>{}</b></span>",
+            "today": "<span color='#ff0000'><b><u>{}</u></b></span>"
+        }
+    }
+    },
+    "network": {
+        // "interface": "wlp2s0", // Optional: Force a specific interface
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": " 🖧  ",
+        "format-disconnected": "⚠  Disconnected",
+
+        // Shortened formats when space is limited (e.g. inside a small bar)
+        "format-linked": "    {ifname} (No IP)",
+
+        // Tooltip shows detailed information on hover
+        "tooltip-format": "    {ifname} via {gwaddr}\n  Frequency: {frequency}MHz\n⇣ Speed: {bandwidthDownBits} ⇡ Speed: {bandwidthUpBits}",
+        "tooltip-format-wifi": "  {essid} ({signalStrength}%)\n⇣ {bandwidthDownBits} ⇡ {bandwidthUpBits}",
+        "tooltip-format-ethernet": "    {ifname}\n⇣ {bandwidthDownBits} ⇡ {bandwidthUpBits}",
+        "tooltip-format-disconnected": "Disconnected",
+
     },
     "battery": {
         "states": {
@@ -85,12 +140,7 @@
       "return-type": "json",
       "escape": true
     },
-    "custom/launcher": {
-        "format": "🐧",                 // an icon (Font Awesome magnifying glass)
-        "tooltip": "App Launcher",
-        "on-click": "wofi --show drun", // command to run on click
-        "interval": 0                  // no need to refresh
-    },
+
     "custom/recorder": {
       "exec": "pgrep wf-recorder >/dev/null && echo REC",
       "interval": 1
