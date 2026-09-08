@@ -148,7 +148,7 @@ exec_always wl-paste --type text --watch clipman store
     for_window [app_id="nm-openconnect-auth-dialog"] floating enable
 
     for_window [class="zoom"] move to workspace 7
-    for_window [class="zoom"] floating enable
+    #for_window [class="zoom"] floating enable
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
