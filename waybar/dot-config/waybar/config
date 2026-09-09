@@ -85,9 +85,9 @@
     },
     "network": {
         // "interface": "wlp2s0", // Optional: Force a specific interface
-        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-wifi": "  ",
         "format-ethernet": " 🖧  ",
-        "format-disconnected": "⚠  Disconnected",
+        "format-disconnected": "⚠ ",
 
         // Shortened formats when space is limited (e.g. inside a small bar)
         "format-linked": "    {ifname} (No IP)",
