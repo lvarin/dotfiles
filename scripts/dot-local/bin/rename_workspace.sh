@@ -7,7 +7,7 @@ MSG='i3-msg'
 MSG='swaymsg'
 
 OLD=$($MSG -t 'get_workspaces' | $MSG -t 'get_workspaces' | jq '.[] | select(.focused == true) | .name ' -r)
-NEW=$(echo "$OLD" | wofi --dmenu --prompt="Rename workspace $OLD to:")
+NEW=$(echo "$OLD" | wofi --dmenu --prompt="Rename workspace $OLD to:" --style "$HOME/.config/wofi/styles/dark.css")
 
 echo "rename workspace \"$OLD\" to \"$NEW\""
 $MSG "rename workspace \"$OLD\" to \"$NEW\""

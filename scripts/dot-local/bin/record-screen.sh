@@ -15,7 +15,7 @@ fi
 if [[ "$ACTION" == "start" ]]; then
   # Pick mode: full screen or region
   mode=$(printf "Full Monitor\nSelect Region\n" |
-    wofi --dmenu --prompt="Screen Recording")
+    wofi --dmenu --prompt="Screen Recording" --style "$HOME/.config/wofi/styles/dark.css")
 
   [ -z "$mode" ] && exit 0
 
@@ -24,7 +24,7 @@ if [[ "$ACTION" == "start" ]]; then
   if [[ "$mode" == "Full Monitor" ]]; then
     # Select monitor
     monitor=$(swaymsg -t get_outputs | jq -r '.[].name' |
-      wofi --dmenu --prompt="Select Monitor")
+      wofi --dmenu --prompt="Select Monitor" --style "$HOME/.config/wofi/styles/dark.css")
 
     [ -z "$monitor" ] && exit 0
 

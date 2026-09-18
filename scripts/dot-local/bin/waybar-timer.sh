@@ -10,7 +10,7 @@ state=$(cat "$STATE")
 
 case "$1" in
 set)
-  mins=$(printf "" | wofi --dmenu --prompt "Timer (min)")
+  mins=$(printf "" | wofi --dmenu --prompt "Timer (min)" --style "$HOME/.config/wofi/styles/dark.css")
   [ -z "$mins" ] && exit 0
 
   if [[ "$mins" == *:* ]]; then

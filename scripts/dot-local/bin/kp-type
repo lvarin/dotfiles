@@ -10,6 +10,7 @@ MPASS="$(
 		--dmenu \
 		--prompt "Password: " \
 		--lines 1 \
+		--style "$HOME/.config/wofi/styles/dark.css" \
 		-P
 	)" || exit 0
 
@@ -41,6 +42,7 @@ selected="$(
             --prompt "KeePass: " \
             --width 700 \
             --height 500 \
+            --style "$HOME/.config/wofi/styles/dark.css" \
             --insensitive
 )" || exit 0
 

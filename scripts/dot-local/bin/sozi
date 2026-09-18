@@ -1,4 +1,18 @@
-docker run  -ti --rm -e DISPLAY=unix$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix -w /foo -v "`pwd`":/foo \
-    escalope/inkscape-sozi:latest \
+#!/usr/bin/env bash
+set -euo pipefail
+
+if command -v podman >/dev/null 2>&1; then
+    RUNTIME=podman
+elif command -v docker >/dev/null 2>&1; then
+    RUNTIME=docker
+else
+    echo "Neither podman nor docker found in PATH" >&2
+    exit 1
+fi
+
+"$RUNTIME" run -ti --rm \
+    -e DISPLAY="$DISPLAY" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -w /foo -v "$PWD":/foo \
+    docker.io/escalope/inkscape-sozi:latest \
     sozi
