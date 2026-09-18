@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Alert Sound
+Comment=Play the alert notification sound
+Exec=/home/galvaro/.local/bin/alert.sh
+Type=Application
+Terminal=false
+Keywords=alert;sound;notify;
+Icon=audio-volume-high

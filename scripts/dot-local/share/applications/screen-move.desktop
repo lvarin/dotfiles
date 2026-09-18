@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Move External Screen
+Comment=Reposition the external monitor relative to the laptop screen
+Exec=/home/galvaro/.local/bin/screen-move.sh
+Type=Application
+Terminal=false
+Keywords=monitor;display;sway;output;
+Icon=video-display

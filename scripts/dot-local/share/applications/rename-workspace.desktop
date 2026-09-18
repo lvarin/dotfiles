@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Rename Workspace
+Comment=Rename the focused Sway workspace
+Exec=/home/galvaro/.local/bin/rename_workspace.sh
+Type=Application
+Terminal=false
+Keywords=sway;workspace;rename;
+Icon=edit-rename

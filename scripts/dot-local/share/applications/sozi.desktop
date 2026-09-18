@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sozi
+Comment=Run Sozi presentation editor via Docker
+Exec=/home/galvaro/.local/bin/sozi
+Type=Application
+Terminal=false
+Keywords=presentation;sozi;inkscape;
+Icon=x-office-presentation

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Tiima
+Comment=Track worked hours and get an estimated finish time
+Exec=kitty --class tiima --title "Tiima" /home/galvaro/.local/bin/tiima
+Type=Application
+Terminal=false
+Keywords=time;tracking;hours;work;
+Icon=preferences-system-time

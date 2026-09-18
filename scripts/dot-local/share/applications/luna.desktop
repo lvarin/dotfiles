@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Luna (Windows RDP)
+Comment=Connect to luna.windows.csc.fi via rdesktop
+Exec=/home/galvaro/.local/bin/luna
+Type=Application
+Terminal=false
+Keywords=rdp;remote;windows;luna;
+Icon=computer

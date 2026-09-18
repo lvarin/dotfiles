@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Pause/Resume Timer
+Comment=Pause or resume the waybar countdown timer
+Exec=/home/galvaro/.local/bin/waybar-timer.sh pause
+Type=Application
+Terminal=false
+Keywords=timer;countdown;waybar;pause;
+Icon=media-playback-pause

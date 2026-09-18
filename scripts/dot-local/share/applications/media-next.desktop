@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Media Next
+Comment=Skip to next track on the active media player
+Exec=/home/galvaro/.local/bin/media-client next
+Type=Application
+Terminal=false
+Keywords=media;music;next;skip;
+Icon=media-skip-forward

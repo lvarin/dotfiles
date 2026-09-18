@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Clear Timer
+Comment=Clear the waybar countdown timer
+Exec=/home/galvaro/.local/bin/waybar-timer.sh clear
+Type=Application
+Terminal=false
+Keywords=timer;countdown;waybar;clear;
+Icon=edit-clear

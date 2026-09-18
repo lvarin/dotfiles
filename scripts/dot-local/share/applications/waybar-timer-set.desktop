@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Set Timer
+Comment=Set the waybar countdown timer (minutes, or hh:mm)
+Exec=/home/galvaro/.local/bin/waybar-timer.sh set
+Type=Application
+Terminal=false
+Keywords=timer;countdown;waybar;
+Icon=preferences-system-time

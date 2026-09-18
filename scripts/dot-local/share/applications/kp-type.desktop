@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=KeePass Type Password
+Comment=Pick a KeePass entry and type its password into the focused window
+Exec=/home/galvaro/.local/bin/kp-type
+Type=Application
+Terminal=false
+Keywords=keepass;password;kdbx;
+Icon=keepassxc

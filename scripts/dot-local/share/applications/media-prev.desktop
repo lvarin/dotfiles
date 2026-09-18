@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Media Previous
+Comment=Skip to previous track on the active media player
+Exec=/home/galvaro/.local/bin/media-client prev
+Type=Application
+Terminal=false
+Keywords=media;music;previous;skip;
+Icon=media-skip-backward

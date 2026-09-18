@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Toggle Keyboard Layout
+Comment=Switch keyboard layout between Finnish and US
+Exec=/home/galvaro/.local/bin/toggle-layout
+Type=Application
+Terminal=false
+Keywords=keyboard;layout;finnish;us;
+Icon=input-keyboard

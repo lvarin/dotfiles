@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mute Toggle
+Comment=Toggle mute on the default audio sink
+Exec=/home/galvaro/.local/bin/volume.sh toggle
+Type=Application
+Terminal=false
+Keywords=volume;audio;mute;
+Icon=audio-volume-muted

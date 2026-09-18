@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Volume Down
+Comment=Decrease output volume by 5%
+Exec=/home/galvaro/.local/bin/volume.sh -5%
+Type=Application
+Terminal=false
+Keywords=volume;audio;sound;
+Icon=audio-volume-low

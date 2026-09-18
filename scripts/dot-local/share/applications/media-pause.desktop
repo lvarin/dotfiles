@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Media Play/Pause
+Comment=Toggle play/pause on the active media player
+Exec=/home/galvaro/.local/bin/media-client pause
+Type=Application
+Terminal=false
+Keywords=media;music;play;pause;
+Icon=media-playback-pause

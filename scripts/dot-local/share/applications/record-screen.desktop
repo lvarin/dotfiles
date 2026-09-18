@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Record Screen
+Comment=Start or stop a screen recording (full monitor or region)
+Exec=/home/galvaro/.local/bin/record-screen.sh
+Type=Application
+Terminal=false
+Keywords=record;screen;video;capture;
+Icon=media-record
