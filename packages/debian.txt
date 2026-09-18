@@ -18,3 +18,4 @@ wofi
 wdisplays
 grimshot
 wf-recorder
+pulseaudio-utils

@@ -28,6 +28,7 @@ set $term kitty
 #set $menu rofi -show drun -modi run -show-icons
 set $menu wofi --show drun -I
 
+
 #
 gaps inner 5
 #gaps outer 5
@@ -127,6 +128,8 @@ exec_always wl-paste --type text --watch clipman store
     # set $dark GTK_THEME=Adwaita:dark
     # bindsym $mod+x exec $dark wdisplays
     bindsym $mod+XF86Display exec wdisplays
+    bindsym $mod+m exec wl-present mirror
+
     bindsym $mod+Shift+d exec ~/.local/bin/screen-move.sh
 
     # Logout, lock, suspend, hibernate, poweroff, revboot
@@ -277,8 +280,7 @@ bindsym $mod+Next move workspace to output down
 #
 # Record screen
 #
-    bindsym $mod+Shift+r exec ~/.local/bin/record-screen.sh start
-    bindsym $mod+Shift+s exec ~/.local/bin/record-screen.sh stop
+    bindsym $mod+Shift+r exec ~/.local/bin/record-screen.sh
 
     bindsym $mod+n exec ~/.local/bin/rename_workspace.sh
 #

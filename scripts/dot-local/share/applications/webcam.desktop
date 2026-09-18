@@ -1,5 +1,8 @@
 [Desktop Entry]
 Name=Webcam
+Comment=Open the webcam feed with ffplay
 Exec=/home/galvaro/.local/bin/webcam
 Type=Application
 Terminal=false
+Keywords=webcam;camera;video;
+Icon=camera-web
