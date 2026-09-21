@@ -68,8 +68,8 @@
         "spacing": 7
     },
     "clock": {
-        "format": "{:%H:%M}",
-    "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d %b %H:%M}",
+        "tooltip-format": "<big>{:%A %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
 
     "calendar": {
         "mode": "month",

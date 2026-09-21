@@ -1,9 +1,9 @@
 stow
 sway
 waybar
-#swaylock
 swaylock-effects-git
 pavucontrol
+blueman
 ttf-roboto
 awesome-terminal-fonts
 kitty
@@ -16,3 +16,4 @@ zsh-history-substring-search
 zsh-completions
 zsh-theme-powerlevel10k
 fish
+network-manager-applet
