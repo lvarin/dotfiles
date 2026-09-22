@@ -58,7 +58,7 @@ clear)
       notify-send "⏱ Timer finished" "Your timer has ended"
       "$HOME/.local/bin/alert.sh"
     fi
-    echo "⏱️"
+    echo ""
 
   else
     seconds=$((state - now))

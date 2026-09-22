@@ -1,9 +1,9 @@
 {
-    "height": 10,
-    "spacing": 2,
+    "height": 38,
+    "spacing": 3,
 
     "modules-left": ["custom/launcher","sway/workspaces"],
-    "modules-center": [],
+    "modules-center": ["custom/timer"],
     "modules-right": ["custom/recorder", "group/expandable-tray", "sway/mode", "network", "pulseaudio", "battery", "clock", "custom/power"],
     "custom/launcher": {
         "format": "🐧",
@@ -32,8 +32,7 @@
             "custom/arrow-next", // The first module acts as the toggle button
             "sway/language",
             "idle_inhibitor",
-            "tray",               // Hidden inside the drawer
-            "custom/timer"
+            "tray"               // Hidden inside the drawer
         ]
     },
 
@@ -84,9 +83,8 @@
     }
     },
     "network": {
-        // "interface": "wlp2s0", // Optional: Force a specific interface
-        "format-wifi": "  ",
-        "format-ethernet": " 🖧  ",
+        "format-wifi": "  {essid} ",
+        "format-ethernet": "  ",
         "format-disconnected": "⚠ ",
 
         // Shortened formats when space is limited (e.g. inside a small bar)
@@ -106,11 +104,12 @@
             "critical": 15
         },
         "format": "{icon}",
-        "format-charging": "   {capacity}%",
+        "format-charging": "   {capacity}% {time}",
+        "format-discharging": " ⇓ {capacity}% {time}",
         "format-plugged": "   {capacity}%",
         "format-alt": "{time} {icon} {capacity}%",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "", // An empty format will hide the module
+        "format-full": "",
         "tooltip-format": "{capacity}% - {time}",
         "format-icons": ["", "", "", "", ""]
     },
@@ -140,7 +139,6 @@
       "return-type": "json",
       "escape": true
     },
-
     "custom/recorder": {
       "exec": "pgrep wf-recorder >/dev/null && echo REC",
       "interval": 1

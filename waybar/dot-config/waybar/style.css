@@ -163,9 +163,19 @@ window#waybar.hidden {
     margin-right: 0;
 }
 
+#battery.discharging {
+    color: black;
+    background-color: mistyrose;
+}
+
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: black;
+    background-color: grey;
+}
+
+#battery.plugged {
+	color: white;
+	background-color: black;
 }
 
 @keyframes blink {
@@ -175,8 +185,13 @@ window#waybar.hidden {
     }
 }
 
+#battery.warning {
+	color: white;
+	background-color: peru;
+}
+
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: orangered;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -212,7 +227,8 @@ label:focus {
 
 
 #network.disconnected {
-    background-color: orange;
+	color: black;
+	background-color: orange;
 }
 
 #pulseaudio.muted {
