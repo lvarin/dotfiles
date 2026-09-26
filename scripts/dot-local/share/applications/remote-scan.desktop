@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Remote Scan Documents
+Comment=Scan documents and create a PDF
+Exec=sh -c "$HOME/.local/bin/remote-scan.sh"
+Type=Application
+Terminal=false
+Icon=scanner
+Categories=Utility;
+Keywords=scan;scanner;document;pdf;
