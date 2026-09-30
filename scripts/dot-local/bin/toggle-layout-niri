@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+niri msg action switch-layout next

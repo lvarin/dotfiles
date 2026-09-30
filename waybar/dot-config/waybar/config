@@ -2,9 +2,9 @@
     "height": 38,
     "spacing": 3,
 
-    "modules-left": ["custom/launcher","sway/workspaces"],
-    "modules-center": ["custom/timer"],
-    "modules-right": ["custom/recorder", "group/expandable-tray", "sway/mode", "network", "pulseaudio", "battery", "clock", "custom/power"],
+    "modules-left": ["custom/launcher","sway/workspaces","niri/workspaces"],
+    "modules-center": ["custom/timer", "sway/mode"],
+    "modules-right": ["custom/recorder", "group/expandable-tray", "idle_inhibitor", "network", "pulseaudio", "battery", "clock", "custom/power"],
     "custom/launcher": {
         "format": "🐧",
         "on-click": "wofi --show drun",
@@ -20,6 +20,14 @@
         "visible": "⦾"
 	    }
     },
+    "niri/workspaces": {
+	"format": "{index} {icon}",
+	"format-icons": {
+		"active": "",
+		"default": "",
+		"focused": ""
+	    }
+    },
 
     // Define the expandable tray group
     "group/expandable-tray": {
@@ -31,7 +39,7 @@
         "modules": [
             "custom/arrow-next", // The first module acts as the toggle button
             "sway/language",
-            "idle_inhibitor",
+            "niri/language",
             "tray"               // Hidden inside the drawer
         ]
     },
@@ -54,6 +62,12 @@
     "sway/language": {
       "format": "{flag}",
       "on-click": "~/.local/bin/toggle-layout"
+    },
+    "niri/language": {
+        "format": "{}",
+        "format-en": "🇬🇧",
+        "format-fi": "🇫🇮",
+        "on-click": "~/.local/bin/toggle-layout-niri"
     },
     "idle_inhibitor": {
         "format": "{icon}",
