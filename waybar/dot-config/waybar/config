@@ -3,7 +3,7 @@
     "spacing": 3,
 
     "modules-left": ["custom/launcher","sway/workspaces","niri/workspaces"],
-    "modules-center": ["custom/timer", "sway/mode"],
+    "modules-center": ["custom/timer", "sway/mode", "mpris"],
     "modules-right": ["custom/recorder", "group/expandable-tray", "idle_inhibitor", "network", "pulseaudio", "battery", "clock", "custom/power"],
     "custom/launcher": {
         "format": "🐧",
@@ -27,6 +27,16 @@
 		"default": "",
 		"focused": ""
 	    }
+    },
+
+    "mpris": {
+        "player": "brave",
+        "format": " {status_icon} ",
+        "status-icons": {
+            "playing": "▶",
+            "paused": "⏸",
+            "stopped": ""
+        }
     },
 
     // Define the expandable tray group

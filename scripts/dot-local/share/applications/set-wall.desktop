@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Set Wallpaper
 Comment=Pick a wallpaper from ~/Pictures/Wallpapers
-Exec=/home/galvaro/.local/bin/set-wall.sh
+Exec=sh -c "$HOME/.local/bin/set-wall.sh"
 Type=Application
 Terminal=false
 Keywords=wallpaper;background;

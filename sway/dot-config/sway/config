@@ -137,7 +137,9 @@ exec_always wl-paste --type text --watch clipman store
 
     bindsym $mod+p exec ~/.local/bin/kp-type
 
-
+    # Three-finger swipe down launches Exposway
+    bindgesture swipe:4:up exec  ~/.local/bin/volume.sh +5%
+    bindgesture swipe:4:down exec  ~/.local/bin/volume.sh -5%
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

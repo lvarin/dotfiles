@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Volume Up
 Comment=Increase output volume by 5%
-Exec=/home/galvaro/.local/bin/volume.sh +5%
+Exec=sh -c "$HOME/.local/bin/volume.sh +5%"
 Type=Application
 Terminal=false
 Keywords=volume;audio;sound;
