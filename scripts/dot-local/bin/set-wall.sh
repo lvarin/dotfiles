@@ -31,7 +31,7 @@ SELECTED=$(cat "$TMP_FILE")
 pkill swaybg
 
 # Set wallpaper
-swaybg -i "$SELECTED" -m fit &
+swaybg -i "$SELECTED" -m fit -c #555555 &
 
 rm ~/Pictures/Wallpaper.jpg && ln -s "$SELECTED" ~/Pictures/Wallpaper.jpg
 
