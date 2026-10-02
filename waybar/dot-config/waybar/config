@@ -128,7 +128,7 @@
             "critical": 15
         },
         "format": "{icon}",
-        "format-charging": "   {capacity}% {time}",
+        "format-charging": "  ",
         "format-discharging": "   {capacity}% {time}",
         "format-plugged": "  {icon}",
         "format-alt": "{time} {icon} {capacity}%",
