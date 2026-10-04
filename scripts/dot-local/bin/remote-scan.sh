@@ -8,24 +8,29 @@ COUNT=1
 
 echo "📡 Connecting to $REMOTE"
 echo "📁 Saving scans in $PWD"
+FILE=""
 
 while true; do
 
   ACTION=$(
-    gum choose \
+    printf '%s\n' \
       "Scan page" \
       "Preview last scan (imv)" \
       "Browse all scans (imv)" \
       "Delete last scan" \
       "Finish and create PDF" \
-      "Exit"
+      "Exit" |
+     wofi --dmenu --sort-order=default --prompt "Scan"
   )
   case "$ACTION" in
   "Scan page")
     FILE=$(printf "%s_%03d.png" "$PREFIX" "$COUNT")
 
-    gum spin --spinner dot --title "🖨️  Scanning page $COUNT..." -- \
-      ssh "$REMOTE" "scanimage --format=png" >"$FILE"
+    notify-send "Scanning" "Scanning page $COUNT..."
+
+    ssh "$REMOTE" "scanimage --format=png" >"$FILE"
+
+    notify-send "Scan complete" "$FILE"
 
     ((COUNT++))
     ;;
@@ -36,25 +41,25 @@ while true; do
     imv -d "${PREFIX}"_*.png
     ;;
   "Delete last scan")
-    echo "🗑️  Deleting last scan..."
+    notify-send "🗑️  Deleting last scan..."
     rm -f "$FILE"
     if ((COUNT > 1)); then
       ((COUNT--))
     fi
     ;;
   "Finish and create PDF")
-    echo "📄 Creating PDF..."
+    notify-send "📄 Creating PDF..."
 
     img2pdf "${PREFIX}"_*.png -o "${PREFIX}.pdf"
 
-    echo "✅ PDF created: ${PREFIX}.pdf"
+    notify-send "✅ PDF created: ${PREFIX}.pdf"
     break
     ;;
   "Exit")
     break
     ;;
   *)
-    echo "❌ Invalid option"
+    notify-send "❌ Invalid option"
     ;;
   esac
 done

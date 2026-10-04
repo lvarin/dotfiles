@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=cmatrix
 Comment=Matrix-style terminal screensaver
-Exec=kitty --class cmatrix --title "cmatrix" /home/galvaro/.local/bin/cmatrix
+Exec=kitty --class cmatrix --title "cmatrix" sh -c "$HOME/.local/bin/cmatrix"
 Type=Application
 Terminal=false
 Keywords=matrix;terminal;fun;
