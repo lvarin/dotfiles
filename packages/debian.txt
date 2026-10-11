@@ -19,3 +19,4 @@ wdisplays
 grimshot
 wf-recorder
 pulseaudio-utils
+bat
