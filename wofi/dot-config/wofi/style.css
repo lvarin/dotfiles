@@ -1,34 +1,36 @@
 * {
   font-family: JetBrainsMono;
+  font-size: 28px;
   color: black;
   background: transparent;
 }
 
 #window {
   background: rgba(238, 232, 213, 0.9);
-  padding: 10px;
-  border-radius: 5px;
+  padding: 0px;
+  border-radius: 4px;
 }
 
 #input {
   border: none;
     outline: none;
     box-shadow: none;
-  padding: 5px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  padding: 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
 }
 
 #outer-box {
-  padding: 10px;
+  padding: 0px;
 }
 
 #img {
-  margin-right: 3px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 #entry {
-  padding: 10px;
+  padding: 1px;
   border-radius: 5px;
 }
 
@@ -37,5 +39,5 @@
 }
 
 #text {
-  margin: 2px;
+  margin: 0px;
 }
