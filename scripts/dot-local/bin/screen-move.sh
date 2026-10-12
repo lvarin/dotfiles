@@ -25,12 +25,18 @@ EXT_Y=$(echo "$EXT_POS" | jq -r '.y')
 EXT_W=$(echo "$EXT_POS" | jq -r '.width')
 EXT_H=$(echo "$EXT_POS" | jq -r '.height')
 
-# If laptop is below external → move it to the right
+# If laptop is below external ← move it to the left
 if [[ "$Y" -gt "$EXT_Y" ]]; then
-  swaymsg output "$LAPTOP" position $((EXT_X + EXT_W)) "$EXT_Y"
-  notify-send "💻 Screen to the right ➡️"
+  swaymsg output "$LAPTOP" position 0  0
+  swaymsg output "$EXTERNAL" position 1920  0
+  notify-send "💻 Screen to the left ←"
+elif [[ "$X" -lt "$EXT_X" ]]; then
+  swaymsg output "$LAPTOP" position "$EXT_W" 0
+  swaymsg output "$EXTERNAL" position 0 0
+  notify-send "💻 Screen to the right →"
 else
   # Otherwise move laptop below external
-  swaymsg output "$LAPTOP" position "$EXT_X" $((EXT_Y + EXT_H))
-  notify-send "💻 Screen is below now ⬇️"
+  swaymsg output "$LAPTOP" position "$(( EXT_X + EXT_H/2))" $((EXT_Y + EXT_H))
+  swaymsg output "$EXTERNAL" position 0  0
+  notify-send "💻 Screen is below now ↓"
 fi
