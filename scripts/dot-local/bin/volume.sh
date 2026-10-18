@@ -35,5 +35,5 @@ else
     notify-send -t 1000 -a 'wp-vol' \
         -h "int:value:$VOL" \
         "${VOL}%" \
-        -i /usr/share/icons/Paper/48x48/apps/volume-knob.png
+        -i /usr/share/icons/gnome/48x48/apps/volume-knob.png
 fi
