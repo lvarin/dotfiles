@@ -15,13 +15,14 @@
   border: none;
     outline: none;
     box-shadow: none;
-  padding: 0px;
+  padding-left: 15px;
   margin-bottom: 0px;
+  margin-left: 15px;
   border-radius: 0px;
 }
 
 #outer-box {
-  padding: 0px;
+  padding: 1px;
 }
 
 #img {
