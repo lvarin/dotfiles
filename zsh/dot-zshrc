@@ -57,7 +57,8 @@ alias ls='ls --color=always'
 alias hl='rg --passthru'
 alias ls='eza --icons=always'
 alias less='batcat'
-
+alias vim='nvim'
+alias fd='fdfind'
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
