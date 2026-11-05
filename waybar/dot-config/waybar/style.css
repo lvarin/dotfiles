@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
     border-radius: 5px;
 }
@@ -21,6 +21,7 @@ window#waybar.hidden {
 #custom-layout,
 #custom-power,
 #custom-timer,
+#custom-notification,
 #tray,
 #custom-launcher,
 #mode,

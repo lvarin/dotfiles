@@ -9,7 +9,7 @@
 @define-color border rgba(163, 196, 162, 0.20);
 
 * {
-  font-family: "JetBrainsMono", "FontAwesome", sans-serif;
+  font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
   font-size: 13px;
 }
 
@@ -107,12 +107,22 @@ button:hover {
 }
 
 .widget-mpris {
-  padding: 8px;
+  padding: 0px;
 }
 
+/* Make the player background black */
 .widget-mpris-player {
-  padding: 8px;
-  border-radius: 10px;
+    background-color: #000000;
+    background-image: none;
+}
+
+.widget-mpris-player .mpris-background,
+.widget-mpris-player .mpris-overlay {
+    background-image: none;
+    background-color: #000000;
+    opacity: 1;
+    filter: none;
+    box-shadow: none;
 }
 
 .widget-mpris-title {
@@ -199,4 +209,16 @@ button:hover {
 
 .blank-window {
   background: transparent;
+}
+
+/* Backlight widget */
+/* Inhibitors widget */
+.widget-inhibitors > label {
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+.widget-inhibitors > button {
+  margin-left: 8px;
+  border-radius: var(--border-radius);
 }

@@ -15,10 +15,9 @@
   "hide-on-clear": true,
   "hide-on-action": true,
   "widgets": [
-    "title#control-title",
+    "inhibitors",
     "dnd",
-    "label#status-label",
-    "calendar",
+    "title",
     "mpris",
     "menubar",
     "buttons-grid",
@@ -27,30 +26,25 @@
     "notifications"
   ],
   "widget-config": {
-    "title#control-title": {
-      "text": "Control Center",
-      "clear-all-button": false,
-      "button-text": "Clear"
+    "inhibitors": {
+      "text": "Inhibitors",
+      "button-text": "Clear All",
+      "clear-all-button": true
     },
     "dnd": {
       "text": "Do Not Disturb"
     },
-    "label#status-label": {
+    "title": {
       "text": "QUICK SETTINGS",
-      "max-lines": 1
-    },
-    "calendar": {
-      "format": "%A, %B %d",
-      "actions": {
-        "on-click-right": "close"
-      }
+      "clear-all-button": true,
+      "button-text": "Clear All"
     },
     "mpris": {
-      "image-size": 72,
+      "image-size": 70,
       "image-radius": 8,
       "blacklist": [],
       "autohide": false,
-      "show-album-art": "when-available",
+      "show-album-art": "never",
       "loop-carousel": false
     },
     "menubar": {
@@ -81,11 +75,11 @@
         "actions": [
           {
             "label": "Terminal",
-            "command": "foot"
+            "command": "kitty"
           },
           {
             "label": "File manager",
-            "command": "thunar"
+            "command": "nautilus"
           },
           {
             "label": "Screenshot",
@@ -97,48 +91,40 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": "󰤨 Wi-Fi",
+          "label": " Wi-Fi",
           "type": "toggle",
           "active": true,
           "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then nmcli radio wifi on; else nmcli radio wifi off; fi'",
           "update-command": "sh -c 'nmcli radio wifi | grep -q enabled && echo true || echo false'"
         },
         {
-          "label": "󰂯 Bluetooth",
+          "label": " Bluetooth",
           "type": "toggle",
           "active": true,
           "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then rfkill unblock bluetooth; else rfkill block bluetooth; fi'",
           "update-command": "sh -c 'rfkill list bluetooth | grep -q \"Soft blocked: no\" && echo true || echo false'"
         },
         {
-          "label": "󰖔 Night light",
-          "command": "sh -c 'notify-send \"Night light\" \"Connect this button to your preferred Wayland night-light tool.\"'"
-        },
-        {
-          "label": "󰍹 Display",
-          "command": "sh -c 'swaymsg -t get_outputs'"
-        },
-        {
-          "label": "󰕾 Mute",
+          "label": "x Mute",
           "type": "toggle",
           "active": false,
           "command": "sh -c 'pactl set-sink-mute @DEFAULT_SINK@ \"$SWAYNC_TOGGLE_STATE\"'",
           "update-command": "sh -c 'pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && echo true || echo false'"
         },
         {
-          "label": "󰌾 Lock",
-          "command": "swaylock"
+          "label": " Lock",
+          "command": "swaylock -f -c 000000"
         }
       ]
     },
     "volume": {
-      "label": "󰕾",
+      "label": "",
       "show-per-app": false,
       "show-per-app-icon": true
     },
     "backlight": {
-      "label": "󰃠",
-      "device": "intel_backlight",
+      "label": "☀ ",
+      "device": "amdgpu_bl1",
       "min": 5
     },
     "notifications": {
