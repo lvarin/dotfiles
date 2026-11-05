@@ -14,7 +14,7 @@ zsh
 network-manager-applet
 mako-notifier
 wlogout
-wofi
+fuzzel
 wdisplays
 grimshot
 wf-recorder

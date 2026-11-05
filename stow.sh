@@ -12,7 +12,6 @@ then
 		sway
 		waybar
 		mako
-		wofi
 		foot
         keepassxc
 		scripts

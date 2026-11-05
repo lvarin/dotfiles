@@ -26,8 +26,8 @@ set $term kitty
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 #set $menu wofi
 #set $menu rofi -show drun -modi run -show-icons
-set $menu wofi --show drun -I
-
+#set $menu wofi --show drun -I
+set $menu fuzzel
 
 #
 gaps inner 5
@@ -122,7 +122,6 @@ exec_always wl-paste --type text --watch clipman store
 # Clipboard
 #
     bindsym $mod+ctrl+space exec clipman pick -t wofi
-    bindsym $mod+shift+i exec wofi-emoji
 
     # Open display manager
     # set $dark GTK_THEME=Adwaita:dark

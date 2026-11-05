@@ -20,7 +20,7 @@ while true; do
       "Delete last scan" \
       "Finish and create PDF" \
       "Exit" |
-     wofi --dmenu --sort-order=default --prompt "Scan"
+     fuzzel --dmenu --prompt "Scan"
   )
   case "$ACTION" in
   "Scan page")

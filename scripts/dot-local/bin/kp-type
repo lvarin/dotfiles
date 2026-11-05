@@ -6,12 +6,11 @@ prefix="csc"
 DB="$HOME/Nextcloud/Home/keepass/Database.kdbx"
 
 MPASS="$(
-	echo | wofi \
+	echo | fuzzel \
 		--dmenu \
 		--prompt "Password: " \
-		--lines 1 \
-		--style "$HOME/.config/wofi/styles/dark.css" \
-		-P
+		--lines 0 \
+		--password=⚫
 	)" || exit 0
 
 # Make sure the database exists.
@@ -37,13 +36,9 @@ fi
 # Wofi selection.
 selected="$(
     printf '%s\n' "${entries[@]}" |
-        wofi \
+        fuzzel \
             --dmenu \
             --prompt "KeePass: " \
-            --width 700 \
-            --height 500 \
-            --style "$HOME/.config/wofi/styles/dark.css" \
-            --insensitive
 )" || exit 0
 
 [[ -n "$selected" ]] || exit 0

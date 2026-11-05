@@ -1,0 +1,202 @@
+/* SwayNC control center — dark graphite with muted green accents */
+@define-color cc-bg rgba(25, 28, 29, 0.96);
+@define-color panel-bg rgba(39, 44, 44, 0.94);
+@define-color panel-hover rgba(53, 60, 59, 0.98);
+@define-color fg #e8e8df;
+@define-color muted #aab3aa;
+@define-color accent #a3c4a2;
+@define-color accent-fg #1d2a20;
+@define-color border rgba(163, 196, 162, 0.20);
+
+* {
+  font-family: "JetBrainsMono", "FontAwesome", sans-serif;
+  font-size: 13px;
+}
+
+.control-center {
+  background: @cc-bg;
+  color: @fg;
+  border: 1px solid @border;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.widget-title,
+.widget-dnd,
+.widget-label,
+.widget-calendar,
+.widget-mpris,
+.widget-menubar,
+.widget-buttons-grid,
+.widget-volume,
+.widget-backlight,
+.widget-notifications {
+  margin: 5px 0;
+  padding: 10px;
+  background: @panel-bg;
+  border: 1px solid @border;
+  border-radius: 12px;
+}
+
+.widget-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.widget-title > button {
+  background: transparent;
+  color: @muted;
+  border: none;
+  box-shadow: none;
+}
+
+.widget-title > button:hover,
+button:hover {
+  background: @panel-hover;
+}
+
+.widget-dnd {
+  padding: 8px 12px;
+}
+
+.widget-dnd > switch {
+  background: #555e58;
+  border-radius: 999px;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+}
+
+.widget-dnd > switch slider {
+  background: @fg;
+  border-radius: 999px;
+}
+
+.widget-label {
+  padding: 6px 12px;
+  color: @accent;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.widget-calendar {
+  padding: 10px;
+}
+
+.widget-calendar button {
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: @fg;
+  padding: 5px;
+}
+
+.widget-calendar button:hover {
+  background: @panel-hover;
+}
+
+.widget-calendar .highlight {
+  color: @accent;
+  font-weight: 800;
+}
+
+.widget-mpris {
+  padding: 8px;
+}
+
+.widget-mpris-player {
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.widget-mpris-subtitle {
+  color: @muted;
+  font-size: 12px;
+}
+
+.widget-menubar > box > box,
+.widget-buttons-grid > flowbox {
+  padding: 2px;
+}
+
+.widget-menubar button,
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  color: @fg;
+  background: #343b39;
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 36px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+  color: @accent-fg;
+  background: @accent;
+}
+
+.widget-volume,
+.widget-backlight {
+  padding: 8px 12px;
+}
+
+.widget-volume scale trough,
+.widget-backlight scale trough {
+  background: #4a514d;
+  border-radius: 999px;
+  min-height: 6px;
+}
+
+.widget-volume scale highlight,
+.widget-backlight scale highlight {
+  background: @accent;
+  border-radius: 999px;
+}
+
+.widget-volume scale slider,
+.widget-backlight scale slider {
+  background: @fg;
+  border-radius: 999px;
+  min-width: 14px;
+  min-height: 14px;
+}
+
+.widget-notifications {
+  padding: 6px;
+}
+
+.notification-row {
+  outline: none;
+}
+
+.notification {
+  background: @panel-bg;
+  border: 1px solid @border;
+  border-radius: 12px;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+.notification-content {
+  color: @fg;
+}
+
+.notification-action {
+  background: #343b39;
+  border-radius: 8px;
+  border: 1px solid @border;
+}
+
+.blank-window {
+  background: transparent;
+}
