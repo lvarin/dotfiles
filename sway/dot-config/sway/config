@@ -93,7 +93,7 @@ input * {
 #
 # Autostart
 #
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id keepassxc
