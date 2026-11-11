@@ -18,8 +18,8 @@
     "inhibitors",
     "dnd",
     "title",
-    "mpris",
-    "menubar",
+    /* "mpris", */
+    /* "menubar", */
     "buttons-grid",
     "volume",
     "backlight",
@@ -91,20 +91,6 @@
     "buttons-grid": {
       "actions": [
         {
-          "label": " Wi-Fi",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then nmcli radio wifi on; else nmcli radio wifi off; fi'",
-          "update-command": "sh -c 'nmcli radio wifi | grep -q enabled && echo true || echo false'"
-        },
-        {
-          "label": " Bluetooth",
-          "type": "toggle",
-          "active": true,
-          "command": "sh -c 'if [ \"$SWAYNC_TOGGLE_STATE\" = true ]; then rfkill unblock bluetooth; else rfkill block bluetooth; fi'",
-          "update-command": "sh -c 'rfkill list bluetooth | grep -q \"Soft blocked: no\" && echo true || echo false'"
-        },
-        {
           "label": "x Mute",
           "type": "toggle",
           "active": false,
@@ -112,8 +98,10 @@
           "update-command": "sh -c 'pactl get-sink-mute @DEFAULT_SINK@ | grep -q yes && echo true || echo false'"
         },
         {
-          "label": " Lock",
-          "command": "swaylock -f -c 000000"
+          "label": " VPN",
+          "type": "toggle",
+          "command": "vpn-on-off.sh",
+	  "update-command": "sh -c 'nmcli connection show --active | grep staff-remote.csc.fi && echo true || echo false'"
         }
       ]
     },

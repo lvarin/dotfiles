@@ -37,6 +37,10 @@ window#waybar.hidden {
     color: white;
 }
 
+#language {
+	margin-left: 5px;
+}
+
 #clock {
     margin-top: 0px;
     margin-left: 0px;
@@ -248,16 +252,7 @@ label:focus {
     background-color: #ecf0f1;
     color: #2d3436;
 }
-
-#language {
-    background: transparent;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
+keyboard-state {
     background: #97e1ad;
     color: #000000;
     padding: 0 0px;

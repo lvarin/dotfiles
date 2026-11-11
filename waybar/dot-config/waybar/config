@@ -4,7 +4,7 @@
 
     "modules-left": ["custom/launcher","sway/workspaces","niri/workspaces"],
     "modules-center": ["custom/timer", "sway/mode", "mpris"],
-    "modules-right": ["custom/recorder", "group/expandable-tray", "idle_inhibitor", "network", "pulseaudio", "battery", "custom/notification", "clock", "custom/power"],
+    "modules-right": ["custom/recorder", "sway/language", "niri/language", "tray", "idle_inhibitor", "pulseaudio", "battery", "custom/notification", "clock", "custom/power"],
     "custom/launcher": {
         "format": "🐧",
         "on-click": "fuzzel --show drun",
@@ -47,17 +47,10 @@
             "click-to-reveal": true // Set to false if you prefer expanding on mouse hover
         },
         "modules": [
-            "custom/arrow-next", // The first module acts as the toggle button
             "sway/language",
             "niri/language",
             "tray"               // Hidden inside the drawer
         ]
-    },
-
-    // Define the toggle button appearance
-    "custom/arrow-next": {
-        "format": "  ", // Unicode arrow icon (e.g., FontAwesome, Nerd Fonts)
-        "tooltip": false
     },
 
     "sway/mode": {
