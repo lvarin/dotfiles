@@ -39,20 +39,6 @@
         }
     },
 
-    // Define the expandable tray group
-    "group/expandable-tray": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 500,
-            "click-to-reveal": true // Set to false if you prefer expanding on mouse hover
-        },
-        "modules": [
-            "sway/language",
-            "niri/language",
-            "tray"               // Hidden inside the drawer
-        ]
-    },
-
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -63,9 +49,10 @@
       "on-click-right": "~/.local/bin/waybar-timer.sh pause"
     },
     "sway/language": {
-      "format": "{flag}",
-      "on-click": "~/.local/bin/toggle-layout"
-    },
+        "format": "{shortDescription}",
+        "tooltip-format": "{long} {flag}",
+        "on-click": "~/.local/bin/toggle-layout",
+},
     "niri/language": {
         "format": "{}",
         "format-en": "🇬🇧",
@@ -81,7 +68,7 @@
     },
     "tray": {
         "icon-size": 20,
-        "spacing": 7
+        "spacing": 7,
     },
     "clock": {
         "format": "{:%d %b %H:%M}",
