@@ -11,7 +11,7 @@ fi
 SYNC_FOLDERS=".dotfiles .config .mozilla .thunderbird .docker .zsh .oh-my-zsh .zoom .urxvt src Music Videos Pictures Documents Templates"
 SYNC_FILES=".zshrc .Xdefaults* .vault_pass.txt .zsh_history"
 
-cd $HOME
+cd "$HOME" || exit 5
 
 for f in $SYNC_FOLDERS
 do

@@ -19,9 +19,9 @@ if [[ "$ACTION" == "start" ]]; then
 
   [ -z "$mode" ] && exit 0
 
-  outfile="$HOME/Pictures/record-$(date +"%Y-%m-%d--%H-%M-%S").mp4"
+  outfile="$HOME/Pictures/record-$(date +'%Y-%m-%d--%H-%M-%S').mp4"
 
-  notify-send "Press META+Shift+r to STOP)
+  notify-send "Press META+Shift+r to STOP)"
 
   if [[ "$mode" == "Full Monitor" ]]; then
     # Select monitor
