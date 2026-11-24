@@ -1,3 +1,3 @@
 #!/bin/bash
 
-paplay /usr/share/sounds/sound-icons/prompt.wav
+paplay $(dirname $0)/prompt.wav
