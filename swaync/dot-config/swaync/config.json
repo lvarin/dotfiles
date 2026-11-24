@@ -7,7 +7,7 @@
   "notification-window-width": 420,
   "timeout": 6,
   "timeout-low": 3,
-  "timeout-critical": 0,
+  "timeout-critical": 10,
   "fit-to-screen": true,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -20,7 +20,7 @@
     "title",
     /* "mpris", */
     /* "menubar", */
-    "buttons-grid",
+    /* "buttons-grid", */
     "volume",
     "backlight",
     "notifications"
