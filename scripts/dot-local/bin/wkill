@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+selected=$(
+    swaymsg -t get_tree |
+    jq -r '
+      .. | objects |
+      select(.type? == "con" and .pid? != null) |
+      "\(.pid)\t\(.name)"
+    ' |
+    fuzzel --dmenu --prompt="Kill window: "
+)
+
+[ -z "$selected" ] && exit 0
+
+pid="${selected%%$'\t'*}"
+
+kill -TERM $pid

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Wayland kill
+Comment=Wayland window kill using fuzzel
+Exec=sh -c "$HOME/.local/bin/wkill"
+Icon=folder-remote
+Terminal=false
+Categories=System;Utility;
+Keywords=wkill;xkill;kill;window
