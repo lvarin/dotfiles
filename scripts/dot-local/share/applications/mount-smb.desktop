@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Mount SMB Share
+Comment=Unlock KeePass and mount SMB share
+Exec=sh -c "$HOME/.local/bin/mount-smb.sh"
+Icon=folder-remote
+Terminal=false
+Categories=System;Utility;
+Keywords=smb;mount
