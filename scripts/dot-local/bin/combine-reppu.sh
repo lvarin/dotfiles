@@ -31,11 +31,19 @@ keep_columns = [
     "Substate",
 ]
 
+def is_zero(val):
+    if val is None or val.strip() == "":
+        return True
+    try:
+        return float(val) == 0.0
+    except ValueError:
+        return False
+
 with open(input_file, "r", newline="", encoding="utf-8-sig") as infile:
 
     reader = csv.DictReader(infile)
 
-    # Identify the first column (month)
+    # Identify the month column
     month_column = reader.fieldnames[2]
 
     # Identify columns starting with Pukki or Rahti
@@ -65,6 +73,10 @@ with open(input_file, "r", newline="", encoding="utf-8-sig") as infile:
 
         for row in reader:
 
+            # Discard row if all Pukki and Rahti columns are zero
+            if all(is_zero(row[col]) for col in resource_columns):
+                continue
+
             # Combine month and year into an ISO date
             month = int(row[month_column])
             year = int(row["Year"])
@@ -88,3 +100,4 @@ with open(input_file, "r", newline="", encoding="utf-8-sig") as infile:
 print(f"Created {output_file}")
 
 PYTHON
+
