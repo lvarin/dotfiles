@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=🚗 Show parking
+Comment=Show parking spaces in CSC parkings
+Exec=sh -c "$HOME/.local/bin/parkkimaksu.sh"
+Type=Application
+Terminal=false
+Keywords=parking;csc;keilaniemi;car
