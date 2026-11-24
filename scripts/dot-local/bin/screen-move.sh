@@ -35,8 +35,7 @@ LAP_POS=$(swaymsg -t get_outputs | jq -r \
   ".[] | select(.name==\"$LAPTOP\") | .rect")
 
 LAP_W=$(echo "$LAP_POS" | jq -r '.width')
-LAP_H=$(echo "$LAP_POS" | jq -r '.height')
-
+# LAP_H=$(echo "$LAP_POS" | jq -r '.height') # not used (yet?)
 
 # Position the screens
 case "$POSITION" in
@@ -54,7 +53,7 @@ case "$POSITION" in
 
   "↓ Bottom")
     swaymsg output "$EXTERNAL" position 0 0
-    swaymsg output "$LAPTOP" position "$[EXT_H/2]" "$EXT_H"
+    swaymsg output "$LAPTOP" position "$((EXT_H/2))" "$EXT_H"
     notify-send "💻 Laptop screen below ↓"
     ;;
 esac
