@@ -62,8 +62,8 @@ output eDP-1 position 320,1440
 # Example configuration:
 #
 exec swayidle -w \
-        timeout 290 'notify-send "Going to sleep in 10 seconds..." -u critical' \
-        timeout 295 'notify-send "Going to sleep in 5 seconds..." -u critical' \
+        timeout 290 'notify-send "Going to sleep in 10 seconds..." -u critical -i notify-medium' \
+        timeout 295 'notify-send "Going to sleep in 5 seconds..." -u critical -i notify-medium' \
         timeout 300 'swaylock -f -c 000000' \
         before-sleep 'swaylock -f -c 000000'
 #
