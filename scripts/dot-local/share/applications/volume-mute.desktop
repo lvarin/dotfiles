@@ -5,4 +5,5 @@ Exec=sh -c "$HOME/.local/bin/volume.sh toggle"
 Type=Application
 Terminal=false
 Keywords=volume;audio;mute;
-Icon=audio-volume-muted
+#Icon=audio-volume-muted
+Icon=/usr/share/icons/Papirus-Dark/24x24/actions/audio-volume-muted.svg

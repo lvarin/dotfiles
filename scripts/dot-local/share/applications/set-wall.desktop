@@ -5,4 +5,5 @@ Exec=sh -c "$HOME/.local/bin/set-wall.sh"
 Type=Application
 Terminal=false
 Keywords=wallpaper;background;
-Icon=preferences-desktop-wallpaper
+#Icon=preferences-desktop-wallpaper
+Icon=/usr/share/icons/Papirus/16x16/apps/preferences-desktop-wallpaper.svg

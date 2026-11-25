@@ -1,8 +1,9 @@
 [Desktop Entry]
-Name=Clear Timer
+Name=⏰ Clear Timer
 Comment=Clear the waybar countdown timer
 Exec=sh -c "$HOME/.local/bin/waybar-timer.sh clear"
 Type=Application
 Terminal=false
 Keywords=timer;countdown;waybar;clear;
-Icon=edit-clear
+#Icon=edit-clear
+Icon=/usr/share/icons/Papirus-Dark/24x24/actions/edit-clear-all.svg

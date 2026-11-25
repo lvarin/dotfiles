@@ -5,4 +5,5 @@ Exec=sh -c "$HOME/.local/bin/webcam"
 Type=Application
 Terminal=false
 Keywords=webcam;camera;video;
-Icon=camera-web
+#Icon=camera-web
+Icon=/usr/share/icons/Papirus-Dark/16x16/devices/camera-web.svg

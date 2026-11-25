@@ -20,3 +20,4 @@ grimshot
 wf-recorder
 pulseaudio-utils
 bat
+papirus-icon-theme

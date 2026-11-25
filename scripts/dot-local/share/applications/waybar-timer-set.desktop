@@ -5,4 +5,5 @@ Exec=sh -c "$HOME/.local/bin/waybar-timer.sh set"
 Type=Application
 Terminal=false
 Keywords=timer;countdown;waybar;
-Icon=preferences-system-time
+#Icon=preferences-system-time
+Icon=/usr/share/icons/Papirus-Dark/24x24/actions/view-calendar-time-spent.svg
