@@ -1,0 +1,21 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Outlook (PWA)
+Exec=/snap/bin/chromium --profile-directory=Default --app-id=eoficlgicibekocmfdomjbfnjmehnhcd
+Icon=/home/galvaro/snap/chromium/3604/.local/share/icons/hicolor/512x512/apps/chrome-eoficlgicibekocmfdomjbfnjmehnhcd-Default.png
+StartupWMClass=crx_eoficlgicibekocmfdomjbfnjmehnhcd
+Actions=New-event;New-message;Open-calendar
+
+[Desktop Action New-event]
+Name=New event
+Exec=/snap/bin/chromium --profile-directory=Default --app-id=eoficlgicibekocmfdomjbfnjmehnhcd --app-launch-url-for-shortcuts-menu-item=https://outlook.cloud.microsoft/calendar/deeplink/compose
+
+[Desktop Action New-message]
+Name=New message
+Exec=/snap/bin/chromium --profile-directory=Default --app-id=eoficlgicibekocmfdomjbfnjmehnhcd --app-launch-url-for-shortcuts-menu-item=https://outlook.cloud.microsoft/mail/deeplink/compose
+
+[Desktop Action Open-calendar]
+Name=Open calendar
+Exec=/snap/bin/chromium --profile-directory=Default --app-id=eoficlgicibekocmfdomjbfnjmehnhcd --app-launch-url-for-shortcuts-menu-item=https://outlook.cloud.microsoft/calendar
