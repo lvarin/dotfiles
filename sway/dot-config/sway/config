@@ -99,6 +99,8 @@ exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ss
 exec --no-startup-id keepassxc
 exec --no-startup-id nextcloud
 exec --no-startup-id zoom
+exec --no-startup-id outlook
+exec --no-startup-id flatpak run com.github.IsmaelMartinez.teams_for_linux
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 exec_always wl-paste --type text --watch clipman store
